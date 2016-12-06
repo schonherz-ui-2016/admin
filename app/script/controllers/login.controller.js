@@ -1,15 +1,14 @@
 (function () {
     angular.module('app')
-        .controller('loginController', function ($http, userName, password) {
-            $http({
-                url:'http://localhost:1337/login', userName, password,
-                method:'POST'
-
-            })
-                .success()
-            {
-                 console.log("ok");}
-
+        .controller('loginController', function ($http, apiService, $scope, $location) {
+            $scope.login = function () {
+                apiService.login($scope.user.email, $scope.user.password)
+                    .then(function (response) {
+                        console.log(response);
+                        apiService.getProducts();
+                        $location.path( "/" );
+                    })
+            }
         })
     
 })();

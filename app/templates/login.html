@@ -1,9 +1,9 @@
 
 <form enctype="text/plain" id="loginUser" method="post">
-    <label for="userName">User name:</label>
-    <div><input type="text" id="userName" ng-model="userName" required></div>
+    <label for="useremail">User name:</label>
+    <div><input type="text" id="useremail" ng-model="user.email" required></div>
     <label for="password">Password:</label>
-    <div><input type="password" id="password" ng-model="password" required></div>
-    <div><button type="submit" id="loginSend">Login</button> </div>
+    <div><input type="password" id="password" ng-model="user.password" required></div>
+    <div><button type="submit" id="loginSend" ng-click="login()">Login</button> </div>
 </form>
 
