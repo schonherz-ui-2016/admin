@@ -4,7 +4,6 @@
               apiService.getProducts()
                     .then(function (response) {
                          $scope.products=response.data;
-                        console.log(response);
                     })
 
         })
