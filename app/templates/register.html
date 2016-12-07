@@ -1,0 +1,9 @@
+
+<h1><div>Registration</div></h1>
+<form enctype="text/plain" id="registerUser" method="post">
+    <div><label for="userEmailReg">User email:</label></div>
+    <div><input type="text" ng-model="user.email" id="userEmailReg" required></div>
+    <div><label for="userPasswordReg">Password</label></div>
+    <div><input type="password" ng-model="user.password" id="userPasswordReg" required></div>
+    <div><button type="submit" ng-click="registration()">Registration</button></div>
+</form>

@@ -1,15 +1,13 @@
 (function () {
     angular.module('app')
-        .controller('registerController', function ($http, user) {
-            $http({
-                url:'http://localhost:1337/register'+user,
-                method:'POST'
-
-            })
-                .then(function(response){
-                    console.log(response.user.id);
-
-        })
+        .controller('registerController', function (apiService, $scope, $location) {
+            $scope.registration = function(){
+                apiService.register($scope.user.email, $scope.user.password)
+                    .then(function(response){
+                         console.log(response.user);
+                         $location.path( "/login/" );
+                    })
+            };
 
 
         })
