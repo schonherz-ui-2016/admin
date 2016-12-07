@@ -2,6 +2,7 @@
     angular.module('app')
         .controller('loginController', function (apiService, $scope, $location) {
             $scope.login = function () {
+                token = localStorage;
                 apiService.login($scope.user.email, $scope.user.password)
                     .then(function (response) {
                         console.log(response);

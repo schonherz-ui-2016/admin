@@ -2,6 +2,11 @@
     var token;
     token = localStorage;
     var apiService = function ($http) {
+        var header = {
+            headers: {
+                Authorization: 'JWT ' + localStorage.getItem('token')
+            }
+        };
         this.login = function (email, password) {
             return $http.post('http://localhost:1337/user/login', {
                     "email": email,
@@ -23,11 +28,7 @@
             });
         };
         this.getProducts = function () {
-            return $http.get('http://localhost:1337/product', {
-                headers: {
-                    Authorization: 'JWT ' + localStorage.getItem('token')
-                }
-            })
+            return $http.get('http://localhost:1337/product', header)
         }
     };
     angular.module('app').service('apiService', apiService);
