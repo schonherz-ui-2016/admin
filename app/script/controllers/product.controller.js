@@ -1,16 +1,16 @@
 (function () {
     angular.module('app')
-        .controller('productController', function ($http, $scope) {
-            $http({
-                url:'http://localhost:1337/product',
-                method:'GET'
+        .controller('productController', function ($http, $scope, $locale, apiService) {
+            $scope.products=function () {
+                return  apiService.getProducts()
+                    .then(function (response) {
+                        // $scope.products=response.product;
+                        console.log(response);
+                        $location.path( "/product" );
+                    })
+            }
 
-            })
-                .then(function(response){
-                    $scope.product=response.product;
-                    console.log(response);
 
-                })
 
 
         })

@@ -3,15 +3,15 @@
         .module('app',['ngRoute'])
         .config(function ($routeProvider) {
             $routeProvider
-                .when('/login',{
+                .when('/user/login',{
                     templateUrl: 'templates/login.html',
                     controller: 'loginController'
                 })
-                .when('/register',{
+                .when('/user/register',{
                     templateUrl: 'templates/register.html',
                     controller: 'registerController'
                 })
-                .when('/products',{
+                .when('/product',{
                     templateUrl:'templates/product.list.html',
                     controller:'productController'
                 })
