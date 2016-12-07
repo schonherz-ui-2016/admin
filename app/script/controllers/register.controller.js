@@ -4,7 +4,7 @@
             $scope.registration=function () {
                 apiService.register($scope.user.email,$scope.user.password)
                     .then(function () {
-                        $location.path( "/user/login" );
+                        $location.path( "/login" );
                     })
             }
         })
