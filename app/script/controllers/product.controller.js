@@ -1,17 +1,12 @@
 (function () {
     angular.module('app')
         .controller('productController', function ($http, $scope, $locale, apiService) {
-            $scope.products=function () {
-                return  apiService.getProducts()
+
+              apiService.getProducts()
                     .then(function (response) {
-                        // $scope.products=response.product;
+                         $scope.products=response.data;
                         console.log(response);
-                        $location.path( "/product" );
                     })
-            }
-
-
-
 
         })
 
