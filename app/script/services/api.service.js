@@ -17,7 +17,6 @@
                     }
                 }).then(function (response) {
                     localStorage.setItem('token', response.data.token) ;
-                    console.log(localStorage.getItem('token'));
                 });
         };
         this.register = function (email, password) {
