@@ -23,7 +23,7 @@
                 "email": email,
                 "password": password
 
-            });
+            }, header);
         };
         this.getProducts = function () {
             return $http.get(domain + '/product', header)
