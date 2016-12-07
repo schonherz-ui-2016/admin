@@ -5,7 +5,7 @@
                 apiService.login($scope.user.email, $scope.user.password)
                     .then(function () {
                         apiService.getProducts();
-                        $location.path( "/product" );
+                        $location.path( "/products" );
                     })
             }
         })

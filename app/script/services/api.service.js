@@ -1,6 +1,7 @@
 (function () {
     var token = "";
     var apiService = function ($http) {
+
         this.login = function (email, password) {
             return $http.post('http://localhost:1337/user/login', {
                     "email": email,
