@@ -1,6 +1,4 @@
 (function () {
-    var token;
-    token = localStorage;
     var apiService = function ($http) {
         var header = {
             headers: {
