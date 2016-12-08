@@ -7,7 +7,7 @@
         //
         // }
 
-
+        apiService.$inject=[$httpProvider];
 
         this.login = function (email, password) {
             return $http.post('http://localhost:1337/user/login', {
@@ -37,7 +37,7 @@
 
             })
         }
-    apiService.$inject=[$httpProvider];
+
     };
     angular.module('app').service('apiService', apiService);
 })();
