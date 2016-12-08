@@ -14,10 +14,13 @@
                     console.log(token);
                 });
         };
-        this.register = function (email, password) {
+        this.register = function (email, password, sureName, lastName, mobile ) {
             return $http.post('http://localhost:1337/user/register', {
                 "email": email,
-                "password": password
+                "password": password,
+                "sureName": sureName,
+                "lastName": lastName,
+                "mobile": mobile,
 
             });
         };

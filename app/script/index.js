@@ -11,6 +11,10 @@
                     templateUrl: 'templates/register.html',
                     controller: 'registerController'
                 })
+                .when('/personalDetails',{
+                    templateUrl: 'templates/personalDetails.html',
+                    controller: 'personalDetailsController',
+                })
                 .when('/products',{
                     templateUrl:'templates/product.list.html',
                     controller:'productController'
