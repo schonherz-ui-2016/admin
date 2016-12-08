@@ -1,4 +1,5 @@
 (function () {
+    // var tokenInjector="";
     angular
         .module('app',['ngRoute'])
         .config(function ($routeProvider) {
@@ -17,4 +18,32 @@
                 })
 
         })
+        // .run(function ($http) {
+        //     $http.defaults.headers.common.Authorization="JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNDgwNzU3MzUxfQ._18tU5-2haVPb_Uk86iFXqbmHWX9BW6w4NGQOGKZZ9I";
+        // })
+    
+        // .factory('tokenInjector', [function () {
+        //      tokenInjector = {
+        //         request: function (config) {
+        //             config.headers['Authorization'] = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNDgwNzU3MzUxfQ._18tU5-2haVPb_Uk86iFXqbmHWX9BW6w4NGQOGKZZ9I";
+        //         }
+        //     }
+        //     return tokenInjector;
+        // }])
+        // .config(['$httpProvider',function ($httpProvider) {
+        //     $httpProvider.interceptors.push(tokenInjector);
+        // }])
+    
+        .factory('httpRequestInterceptor',function () {
+            return{
+                request: function (config) {
+                    config.headers['Authorization'] = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNDgwNzU3MzUxfQ._18tU5-2haVPb_Uk86iFXqbmHWX9BW6w4NGQOGKZZ9I";
+                return config;
+                }
+            }
+        })
+
+        .config(function ($httpProvider) {
+            $httpProvider.interceptors.push('httpRequestInterceptor');
+        });
 })();
