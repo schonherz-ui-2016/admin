@@ -2,7 +2,8 @@
     // var tokenInjector="";
     angular
         .module('app',['ngRoute'])
-        .config(function ($routeProvider) {
+        .config(function ($routeProvider, $locationProvider) {
+            $locationProvider.hashPrefix('');
             $routeProvider
                 .when('/login',{
                     templateUrl: 'templates/login.html',
@@ -16,6 +17,9 @@
                     templateUrl:'templates/product.list.html',
                     controller:'productController'
                 })
+                .otherwise({
+                    redirectTo: '/'
+                });
 
         })
         // .run(function ($http) {
@@ -37,7 +41,7 @@
         .factory('httpRequestInterceptor',function () {
             return{
                 request: function (config) {
-                    config.headers['Authorization'] = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNDgwNzU3MzUxfQ._18tU5-2haVPb_Uk86iFXqbmHWX9BW6w4NGQOGKZZ9I";
+                    config.headers['Authorization'] = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNDgxMTIzODczLCJleHAiOjE0ODE3Mjg2NzN9.GmNSmqhLnFpONOy3SW_j7VZWb5wR9oV9v02vwiDPC3Y";
                 return config;
                 }
             }

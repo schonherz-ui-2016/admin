@@ -1,16 +1,22 @@
 (function () {
     var token = "";
-    var apiService = function ($http, $httpProvider) {
+    var domain ="http://localhost:3000"
+// <<<<<<< HEAD
+    var apiService = function ($http) {
          // $httpProvider:tokenInjector;
         // $httpProvider:httpRequestInterceptor;
         // this.loadToken=function ($httpProvider) {
         //
         // }
 
-        apiService.$inject=[$httpProvider];
+        // apiService.$inject=[$httpProvider];
 
+// =======
+//     var domain='http://localhost:1337';
+//     var apiService = function ($http) {
+// >>>>>>> master
         this.login = function (email, password) {
-            return $http.post('http://localhost:1337/user/login', {
+            return $http.post(domain+'/user/login', {
                     "email": email,
                     "password": password
                 }, {
@@ -19,22 +25,30 @@
                     }
                 }).then(function (response) {
                     token = response.data.token;
-                    console.log(token);
                 });
         };
         this.register = function (email, password) {
-            return $http.post('http://localhost:1337/user/register', {
+            return $http.post(domain+'/user/register', {
                 "email": email,
                 "password": password
-
-            });
+            },
+                { headers: {
+                Authorization: 'JWT ' + token
+            }});
         };
         this.getProducts = function () {
-            return $http.get('http://localhost:1337/product', {
-                // headers: {
-                //     Authorization: 'JWT ' + token
-                // }
-
+// <<<<<<< HEAD
+//             return $http.get('http://localhost:1337/product', {
+//                 // headers: {
+//                 //     Authorization: 'JWT ' + token
+//                 // }
+//
+// =======
+            return $http.get(domain+'/product', {
+                headers: {
+                    Authorization: 'JWT ' + token
+                }
+// >>>>>>> master
             })
         }
 
