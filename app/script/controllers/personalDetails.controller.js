@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module('app')
-        .controller('loginController', function ($http, apiService, $scope,) {
+        .controller(lController', function ($http, apiService, $scope,) {
             $scope.details = function () {
                 apiService.register($scope.user.sureName, $scope.user.lastName, $scope.user.mobile)
                     .then(function (response) {
