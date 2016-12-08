@@ -1,7 +1,8 @@
 (function () {
     angular
         .module('app',['ngRoute'])
-        .config(function ($routeProvider) {
+        .config(function ($routeProvider, $locationProvider) {
+            $locationProvider.hashPrefix('');
             $routeProvider
                 .when('/login',{
                     templateUrl: 'templates/login.html',
@@ -15,6 +16,9 @@
                     templateUrl:'templates/product.list.html',
                     controller:'productController'
                 })
+                .otherwise({
+                    redirectTo: '/'
+                });
 
         })
 })();
