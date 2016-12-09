@@ -1,34 +1,29 @@
 (function () {
-    var token = "";
     var domain='http://localhost:1337';
+    var header= { headers: {
+        Authorization: 'JWT ' + localStorage.getItem('token')
+    }};
     var apiService = function ($http) {
         this.login = function (email, password) {
             return $http.post(domain+'/user/login', {
-                    "email": email,
-                    "password": password
-                }, {
-                    headers: {
-                        'Content-type': 'application/json'
-                    }
-                }).then(function (response) {
-                    token = response.data.token;
-                });
+                "email": email,
+                "password": password
+            }, {
+                headers: {
+                    'Content-type': 'application/json'
+                }
+            }).then(function (response) {
+                localStorage.setItem('token', response.data.token);
+            });
         };
         this.register = function (email, password) {
             return $http.post(domain+'/user/register', {
                 "email": email,
                 "password": password
-            },
-                { headers: {
-                Authorization: 'JWT ' + token
-            }});
+            }, header);
         };
         this.getProducts = function () {
-            return $http.get(domain+'/product', {
-                headers: {
-                    Authorization: 'JWT ' + token
-                }
-            })
+            return $http.get(domain+'/product', header);
         }
     };
     angular.module('app').service('apiService', apiService);
