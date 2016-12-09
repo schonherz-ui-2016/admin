@@ -1,6 +1,6 @@
 (function () {
     var token = "";
-    var domain ="http://localhost:3000"
+    var domain ="http://localhost:1337"
 // <<<<<<< HEAD
     var apiService = function ($http) {
          // $httpProvider:tokenInjector;
