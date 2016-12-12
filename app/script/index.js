@@ -1,9 +1,13 @@
 (function () {
-    // var tokenInjector="";
+
+
     angular
         .module('app',['ngRoute'])
+
+
         .config(function ($routeProvider, $locationProvider) {
             $locationProvider.hashPrefix('');
+
             $routeProvider
                 .when('/login',{
                     templateUrl: 'templates/login.html',
@@ -15,7 +19,11 @@
                 })
                 .when('/products',{
                     templateUrl:'templates/product.list.html',
-                    controller:'productController'
+                    controller:'productListController'
+                })
+                .when('/products/:id',{
+                    templateUrl: 'templates/product.html',
+                    controller: 'productController'
                 })
                 .when('/users', {
                     templateUrl: 'templates/users.html',

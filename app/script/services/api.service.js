@@ -24,7 +24,6 @@
             });
         };
         this.getProducts = function () {
-
             return $http.get(domain+'/product');
         };
         this.getUsers = function () {
@@ -32,6 +31,9 @@
         };
         this.getUsersId = function (id) {
             return $http.get(domain+'/user/'+id);
+        }
+        this.getProduct = function (id) {
+            return $http.get(domain+'/product/'+id);
         }
     };
     angular.module('app').service('apiService', apiService);
