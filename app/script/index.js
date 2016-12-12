@@ -1,4 +1,5 @@
 (function () {
+    // var tokenInjector="";
     angular
         .module('app',['ngRoute'])
         .config(function ($routeProvider, $locationProvider) {
@@ -21,4 +22,17 @@
                 });
 
         })
+
+        .factory('httpRequestInterceptor',function () {
+            return{
+                request: function (config) {
+                    config.headers['Authorization'] = 'JWT ' + localStorage.getItem('token');
+                return config;
+                }
+            }
+        })
+
+        .config(function ($httpProvider) {
+            $httpProvider.interceptors.push('httpRequestInterceptor');
+        });
 })();
