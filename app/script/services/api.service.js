@@ -28,6 +28,12 @@
         this.getProducts = function () {
 
             return $http.get(domain+'/product');
+        };
+        this.getUsers = function () {
+            return $http.get(domain+'/user');
+        };
+        this.getUsersId = function (id) {
+            return $http.get(domain+'/user/'+id);
         }
     };
     angular.module('app').service('apiService', apiService);
