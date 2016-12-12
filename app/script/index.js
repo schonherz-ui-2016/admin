@@ -17,6 +17,14 @@
                     templateUrl:'templates/product.list.html',
                     controller:'productController'
                 })
+                .when('/users', {
+                    templateUrl: 'templates/users.html',
+                    controller: 'usersController'
+                })
+                .when('/users/:id', {
+                    templateUrl: 'templates/users.details.html',
+                    controller: 'usersDetailsController'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
