@@ -1,9 +1,12 @@
 (function () {
+
     var domain='http://localhost:1337';
     var header= { headers: {
         Authorization: 'JWT ' + localStorage.getItem('token')
     }};
+
     var apiService = function ($http) {
+
         this.login = function (email, password) {
             return $http.post(domain+'/user/login', {
                 "email": email,
@@ -20,10 +23,11 @@
             return $http.post(domain+'/user/register', {
                 "email": email,
                 "password": password
-            }, header);
+            });
         };
         this.getProducts = function () {
-            return $http.get(domain+'/product', header);
+
+            return $http.get(domain+'/product');
         }
     };
     angular.module('app').service('apiService', apiService);
