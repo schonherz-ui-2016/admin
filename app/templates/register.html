@@ -1,8 +1,25 @@
 <h1><div>Registration</div></h1>
-<form enctype="text/plain" id="registerUser" method="post">
-    <div><label for="userEmailReg">User email:</label></div>
-    <div><input type="email" ng-model="user.email" id="userEmailReg" required></div>
-    <div><label for="userPasswordReg">Password</label></div>
-    <div><input type="password" ng-model="user.password" id="userPasswordReg" required></div>
-    <div><button type="submit" ng-click="registration()">Registration</button></div>
+<form type="text" method="post" id="register">
+    <span id="email">Email:</span>
+    <div><input type="text" ng-model="user.email" required></div>
+
+    <span id="password">Password:</span>
+    <div><input type="text" ng-model="user.password" required></div>
+
+    <span id="name">Name:</span>
+    <div><input type="text" ng-model="user.name" required></div>
+
+    <span id="address">Address:</span>
+    <div><input type="text" ng-model="user.address" required></div>
+
+    <span id="phone">phone:</span>
+    <div><input type="text" ng-model="user.phone" required></div>
+
+    <span id="balance">Balance:</span>
+    <div> <input type="text" ng-model="user.balance" required></div>
+
+    <span id="rights">Rights:</span>
+    <div><input type="text" ng-model="user.rights" required></div>
+
+    <div><button type="submit" id="personalBtn" ng-click="register()">Submit</button></div>
 </form>

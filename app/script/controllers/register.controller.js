@@ -1,8 +1,8 @@
 (function () {
     angular.module('app')
         .controller('registerController', function ($http, apiService, $scope, $location) {
-            $scope.registration=function () {
-                apiService.register($scope.user.email,$scope.user.password)
+            $scope.register=function () {
+                apiService.register($scope.user)
                     .then(function () {
                         $location.path( "/login" );
                     })
