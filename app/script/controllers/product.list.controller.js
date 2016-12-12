@@ -5,7 +5,6 @@
                     .then(function (response) {
                          $scope.products=response.data;
                     })
-
         })
 
 })();
