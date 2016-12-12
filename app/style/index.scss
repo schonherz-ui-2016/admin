@@ -1,3 +1,43 @@
 body{
   background-color: greenyellow;
 }
+
+header{
+  background-color: #0650A6;
+  color: #fff;
+  font-size: 1.3em;
+  font-family: 'Open Sans Condensed', SansSerif;
+  padding: .3em 3em;
+  a{
+    color: #fff;
+    padding: .2em 3%;
+  }
+  #right-text{
+    padding-left: 8%;
+  }
+  #search{
+    display: flex;
+    flex-flow: row;
+    padding: 0 .3em;
+  }
+  #searchicon{
+    margin: .6em -1.5em 0 .8em;
+    font-size: .8em;
+  }
+  #searchfield{
+    background-color: #4588D4;
+    border-radius: 1em;
+    border: hidden;
+    padding-left: 2.2em;
+  }
+  #left-text{
+    text-align: right;
+    padding-right: 8%;
+  }
+}
+.container{
+  padding-top: 4em;
+  .left{
+    margin-left: 0;
+  }
+}
