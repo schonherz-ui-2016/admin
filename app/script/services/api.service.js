@@ -26,8 +26,10 @@
             });
         };
         this.getProducts = function () {
-
             return $http.get(domain+'/product');
+        }
+        this.getProduct = function (id) {
+            return $http.get(domain+'/product/'+id);
         }
     };
     angular.module('app').service('apiService', apiService);
