@@ -22,26 +22,11 @@
                 });
 
         })
-        // .run(function ($http) {
-        //     $http.defaults.headers.common.Authorization="JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNDgwNzU3MzUxfQ._18tU5-2haVPb_Uk86iFXqbmHWX9BW6w4NGQOGKZZ9I";
-        // })
-    
-        // .factory('tokenInjector', [function () {
-        //      tokenInjector = {
-        //         request: function (config) {
-        //             config.headers['Authorization'] = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiaWF0IjoxNDgwNzU3MzUxfQ._18tU5-2haVPb_Uk86iFXqbmHWX9BW6w4NGQOGKZZ9I";
-        //         }
-        //     }
-        //     return tokenInjector;
-        // }])
-        // .config(['$httpProvider',function ($httpProvider) {
-        //     $httpProvider.interceptors.push(tokenInjector);
-        // }])
-    
+
         .factory('httpRequestInterceptor',function () {
             return{
                 request: function (config) {
-                    config.headers['Authorization'] = "JWT eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNDgxMTIzODczLCJleHAiOjE0ODE3Mjg2NzN9.GmNSmqhLnFpONOy3SW_j7VZWb5wR9oV9v02vwiDPC3Y";
+                    config.headers['Authorization'] = 'JWT ' + localStorage.getItem('token');
                 return config;
                 }
             }
