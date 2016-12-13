@@ -1,13 +1,23 @@
 
 <h1>Product list:</h1>
-<ul>
-<li ng-repeat="product in products| filter:search">
-    <a href="#/products/{{product.id}}">
-        <h1> <div>{{product.name}}</div></h1>
-        <!--<div>Price:{{product.price}}</div>-->
-        <div>Category:{{product.category}}</div>
-        <hr/>
-    </a>
-</li>
-</ul>
+
+<div class="row-fluid">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Category</th>
+            </tr>
+        </thead>
+        <tbody >
+
+            <tr ng-repeat="product in products| filter:search">
+                    <td>{{product.id}}</td>
+                    <td><a href="#/products/{{product.id}}">{{product.name}} </a></td>
+                    <td>{{product.category.name}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
