@@ -35,6 +35,9 @@
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
         }
+        this.logout= function () {
+            localStorage.setItem('token','');
+        }
     };
     angular.module('app').service('apiService', apiService);
 })();
