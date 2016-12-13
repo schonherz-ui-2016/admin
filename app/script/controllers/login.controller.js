@@ -4,6 +4,10 @@
             $scope.login = function () {
                 apiService.login($scope.user.email, $scope.user.password)
                     .then(function () {
+                        $scope.loggedIn=true;
+                        console.log($scope.loggedIn);
+                    })
+                    .then(function () {
                         $location.path( "/" );
                     })
             }
