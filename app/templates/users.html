@@ -1,0 +1,10 @@
+<h1>Users list:</h1>
+<ul>
+    <li ng-repeat="user in users| filter:search">
+        <a href="#/users/{{user.id}}">
+            <h4>{{user.email}}</h4>
+            <div></div>
+            <hr/>
+        </a>
+    </li>
+</ul>
