@@ -3,8 +3,12 @@
  */
 (function () {
     angular.module('app')
-        .controller('mainController', function (apiService, $location) {
-            apiService.logout();
+        .controller('mainController', function (apiService, $scope) {
+
+            $scope.logout=function logout() {
+                apiService.logout();
+                console.log("logout!!");
+            }
 
         } )
 })();
