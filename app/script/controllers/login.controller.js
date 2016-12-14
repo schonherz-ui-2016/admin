@@ -5,10 +5,8 @@
 
                 apiService.login($scope.user.email, $scope.user.password)
                     .then(function () {
-                        localStorage.setItem('loggedIn',true);
                         $location.path( "/" );
                     })
             }
         })
-    
 })();
