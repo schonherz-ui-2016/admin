@@ -17,6 +17,10 @@
                     templateUrl: 'templates/register.html',
                     controller: 'registerController'
                 })
+                .when('/userUpdate/:id',{
+                    templateUrl: 'templates/register.html',
+                    controller: 'userUpdateController'
+            })
                 .when('/products',{
                     templateUrl:'templates/product.list.html',
                     controller:'productListController'

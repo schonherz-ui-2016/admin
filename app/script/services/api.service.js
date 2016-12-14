@@ -35,6 +35,9 @@
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
         }
+        this.userUpdate = function (id) {
+           return $http.put(domain+'/user/'+id);
+        }
     };
     angular.module('app').service('apiService', apiService);
 })();
