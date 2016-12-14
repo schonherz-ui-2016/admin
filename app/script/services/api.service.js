@@ -2,13 +2,16 @@
 
     var domain='http://localhost:1337';
     var apiService = function ($http) {
-
+        // this.loggedIn=false;
         this.login = function (email, password) {
             return $http.post(domain+'/user/login', {
                 "email": email,
                 "password": password
             }).then(function (response) {
                 localStorage.setItem('token', response.data.token);
+                // console.log(response);
+                // localStorage.setItem('userId', response.data.id);
+                // this.loggedIn=true;
             });
         };
         this.register = function (user) {
@@ -29,7 +32,7 @@
         this.getUsers = function () {
             return $http.get(domain+'/user');
         };
-        this.getUsersId = function (id) {
+        this.getUser = function (id) {
             return $http.get(domain+'/user/'+id);
         }
         this.getProduct = function (id) {
@@ -37,7 +40,13 @@
         }
         this.logout= function () {
             localStorage.setItem('token','');
+            localStorage.setItem('loggedIn',false);
         }
+
+        this.getUserId=function () {
+            return $http.get(domain+'/user/me');
+        }
+
     };
     angular.module('app').service('apiService', apiService);
 })();
