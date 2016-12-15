@@ -11,6 +11,14 @@
             <option ng-repeat="category in category">{{category.id}} {{category.name}}</option>
         </select>
         <br/>
+        Price:
+        <br/>
+        <input ng-model="product.price" type="number" name="product-price">
+        <br/>
+        Description:
+        <br/>
+        <textarea ng-model="product.description" type="text" name="product-description"></textarea>
+        <br/>
         <input type="submit" value="Send" ng-click="newProduct(product)">
     </form>
 </div>

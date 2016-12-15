@@ -40,7 +40,9 @@
                 "name": product.name,
                 "createdAt": new Date(),
                 "updatedAt": new Date(),
-                "category": product.category
+                "category": product.category,
+                "price": product.price,
+                "description": product.description
             });
         };
         this.getCategory = function () {
