@@ -33,6 +33,10 @@
                     templateUrl: 'templates/users.details.html',
                     controller: 'usersDetailsController'
                 })
+                .when('/new_product', {
+                    templateUrl: 'templates/add.product.html',
+                    controller: 'addProductController'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });

@@ -1,0 +1,16 @@
+
+<div>
+    <form>
+        Product name:
+        <br/>
+        <input ng-model="product.name" type="text" name="product-name">
+        <br/>
+        Category:
+        <br/>
+        <select ng-model="product.category.id" class="category" name="category">
+            <option ng-repeat="category in category">{{category.id}} {{category.name}}</option>
+        </select>
+        <br/>
+        <input type="submit" value="Send" ng-click="newProduct(product)">
+    </form>
+</div>

@@ -31,10 +31,21 @@
         };
         this.getUsersId = function (id) {
             return $http.get(domain+'/user/'+id);
-        }
+        };
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
-        }
+        };
+        this.addProduct = function (product) {
+            return $http.post(domain+'/product', {
+                "name": product.name,
+                "createdAt": new Date(),
+                "updatedAt": new Date(),
+                "category": product.category
+            });
+        };
+        this.getCategory = function () {
+            return $http.get(domain+'/category');
+        };
     };
     angular.module('app').service('apiService', apiService);
 })();
