@@ -7,13 +7,9 @@
                         $location.path('/products')
                     });
             };
-            (function() {
-                apiService.getCategory()
-                    .then(function (res) {
-                        $scope.category = res.data.map(function (obj) {
-                            return obj;
-                        });
-                    });
-            })();
+            apiService.getCategories()
+                .then(function (res) {
+                    $scope.category = res.data;
+                });
         })
 })();

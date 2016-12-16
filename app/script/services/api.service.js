@@ -45,7 +45,7 @@
                 "description": product.description
             });
         };
-        this.getCategory = function () {
+        this.getCategories = function () {
             return $http.get(domain+'/category');
         };
     };
