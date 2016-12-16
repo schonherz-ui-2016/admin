@@ -2,7 +2,6 @@
 
     var domain='http://localhost:1337';
     var apiService = function ($http) {
-
         this.login = function (email, password) {
             return $http.post(domain+'/user/login', {
                 "email": email,
@@ -20,7 +19,6 @@
                 "phone":user.phone,
                 "balance":user.balance,
                 "rights":user.rights
-
             });
         };
         this.getProducts = function () {
@@ -29,12 +27,20 @@
         this.getUsers = function () {
             return $http.get(domain+'/user');
         };
-        this.getUsersId = function (id) {
+        this.getUser = function (id) {
             return $http.get(domain+'/user/'+id);
         }
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
         }
+        this.logout= function () {
+            localStorage.setItem('token','');
+        }
+
+        this.getUserId=function () {
+            return $http.get(domain+'/user/me');
+        }
+
     };
     angular.module('app').service('apiService', apiService);
 })();
