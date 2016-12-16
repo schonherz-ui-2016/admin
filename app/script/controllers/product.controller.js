@@ -3,11 +3,17 @@
  */
 (function () {
     angular.module('app')
-        .controller('productController', function ( $scope, apiService, $routeParams) {
-            apiService.getProduct($routeParams.id)
-                .then(function (response) {
-                    $scope.product=response.data;
-                })
-        })
+        .controller('productController', function ( $scope, apiService, $routeParams, $location) {
+           $scope.removeProduct=function () {
+               apiService.removeProduct($routeParams.id)
+                   .then(function () {
+                       $location.path('/products');
+                   })
+           };
 
+           apiService.getProduct($routeParams.id)
+                   .then(function (response) {
+                       $scope.product=response.data;
+                   })
+        })
 })();

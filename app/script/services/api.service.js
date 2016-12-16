@@ -29,16 +29,18 @@
         };
         this.getUser = function (id) {
             return $http.get(domain+'/user/'+id);
-        }
+        };
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
-        }
+        };
         this.logout= function () {
             localStorage.setItem('token','');
-        }
-
+        };
         this.getUserId=function () {
             return $http.get(domain+'/user/me');
+        };
+        this.removeProduct=function (id) {
+            return $http.delete(domain+'/product/'+id);
         }
 
     };

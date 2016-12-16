@@ -9,9 +9,9 @@
 <body ng-controller="mainController">
     <header class="container-fluid">
         <div class="row">
-            <div class="col-md-5 col-sm-5" id="right-text">
+            <div class="col-md-5 col-sm-5" id="right-text" >
                 <a class="glyphicon glyphicon-log-in" href="#/login/">Login</a>
-                <a href="#/register/">Register</a>
+                <a href="#/register/" ng-if="token">Register</a>
             </div>
             <div class="col-sm-2 col-md-2" id="search">
                 <span id="searchicon" class="glyphicon glyphicon-search"></span>
@@ -24,14 +24,14 @@
         </div>
     </header>
     <div class="container">
-        <section class="col-sm-2 col-md-2 left">
+        <section class="col-sm-2 col-md-2 left" ng-if="token">
             <a href="#/products/">Products</a>
             <br/>
             <a href="#/users">Users</a>
             <hr/>
         </section>
         <div class="col-sm-10 col-md-10 right right-container">
-            <h3><div ng-if="!token">Hello, you should login!</div></h3>
+            <h3><div ng-if="!token">Hello, please log in!</div></h3>
             <h3><div ng-if="token">Hi, {{userId}}</div></h3>
             <ng-view></ng-view>
         </div>
