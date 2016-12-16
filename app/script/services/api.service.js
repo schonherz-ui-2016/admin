@@ -29,9 +29,23 @@
         };
         this.getUser = function (id) {
             return $http.get(domain+'/user/'+id);
-        }
+        };
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
+        };
+        this.addProduct = function (product) {
+            return $http.post(domain+'/product', {
+                "name": product.name,
+                "createdAt": new Date(),
+                "updatedAt": new Date(),
+                "category": product.category,
+                "price": product.price,
+                "description": product.description
+            });
+        };
+        this.getCategories = function () {
+            return $http.get(domain+'/category');
+        };
         }
         this.logout= function () {
             localStorage.setItem('token','');
@@ -40,7 +54,6 @@
         this.getUserId=function () {
             return $http.get(domain+'/user/me');
         }
-
     };
     angular.module('app').service('apiService', apiService);
 })();
