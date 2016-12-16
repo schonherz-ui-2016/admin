@@ -46,7 +46,9 @@
         .factory('httpRequestInterceptor',function () {
             return{
                 request: function (config) {
+                    if(localStorage.getItem('token')!==''){
                     config.headers['Authorization'] = 'JWT ' + localStorage.getItem('token');
+                    }
                 return config;
                 }
             }
