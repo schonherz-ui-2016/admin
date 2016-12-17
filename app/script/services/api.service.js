@@ -1,5 +1,4 @@
 (function () {
-
     var domain='http://localhost:1337';
     var apiService = function ($http) {
         this.login = function (email, password) {
@@ -33,6 +32,19 @@
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
         };
+        this.addProduct = function (product) {
+            return $http.post(domain+'/product', {
+                "name": product.name,
+                "createdAt": new Date(),
+                "updatedAt": new Date(),
+                "category": product.category,
+                "price": product.price,
+                "description": product.description
+            });
+        };
+        this.getCategories = function () {
+            return $http.get(domain+'/category');
+        };
         this.logout= function () {
             localStorage.setItem('token','');
         };
@@ -42,7 +54,6 @@
         this.removeProduct=function (id) {
             return $http.delete(domain+'/product/'+id);
         }
-
     };
     angular.module('app').service('apiService', apiService);
 })();
