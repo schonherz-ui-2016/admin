@@ -11,10 +11,15 @@
             }, function (token) {
                 $scope.token=token;
                 stringToken=token;
+                var id="";
                 if(stringToken!==""){
                     apiService.getUserId()
                         .then(function (res) {
-                            $scope.userId=res.data;
+                        id=res.data;
+                            apiService.getUser(id)
+                                .then(function (response) {
+                                    $scope.user=response.data;
+                                })
                         })
                 }
                });

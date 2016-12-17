@@ -32,7 +32,7 @@
         </section>
         <div class="col-sm-10 col-md-10 right right-container">
             <h3><div ng-if="!token">Hello, please log in!</div></h3>
-            <h3><div ng-if="token">Hi, {{userId}}</div></h3>
+            <h3><div ng-if="token">Hi, {{user.id}}</div></h3>
             <ng-view></ng-view>
         </div>
     </div>
