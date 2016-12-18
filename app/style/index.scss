@@ -47,3 +47,8 @@ header{
 .sortorder.reverse:after {
   content: '\25bc';
 }
+
+.sort:hover {
+  color: #cc0000;
+  cursor: pointer;
+}

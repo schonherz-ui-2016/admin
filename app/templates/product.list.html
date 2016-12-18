@@ -5,24 +5,24 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>
-                    <button ng-click="sortBy('id')">ID</button>
+                <th class="sort" ng-click="sortBy('id')">
+                    <span>ID</span>
                     <span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th>
-                    <button ng-click="sortBy('name')">Name</button>
+                <th class="sort" ng-click="sortBy('name')">
+                    <span>Name</span>
                     <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th>
-                    <button ng-click="sortBy('category.name')">Category</button>
+                <th class="sort" ng-click="sortBy('category.name')">
+                    <span>Category</span>
                     <span class="sortorder" ng-show="propertyName === 'category.name'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th>
-                    <button ng-click="sortBy('price')">Price</button>
+                <th class="sort" ng-click="sortBy('price')">
+                    <span>Price</span>
                     <span class="sortorder" ng-show="propertyName === 'price'" ng-class="{reverse: reverse}"></span>
                 </th>
-                <th>
-                    <button ng-click="sortBy('description')">Description</button>
+                <th class="sort" ng-click="sortBy('description')">
+                    <span>Description</span>
                     <span class="sortorder" ng-show="propertyName === 'description'" ng-class="{reverse: reverse}"></span>
                 </th>
             </tr>
@@ -40,7 +40,7 @@
     </table>
 </div>
 <div class="row-fluid">
-    <button class="btn btn-info" ng-click="add()"> <i class="icon-white glyphicon-plus"></i>Add product</button>
+    <button class="btn btn-primary" ng-click="add()"> <i class="icon-white glyphicon-plus"></i>Add product</button>
 </div>
 
 
