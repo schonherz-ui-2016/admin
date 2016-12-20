@@ -62,7 +62,7 @@
                 "category": product.category,
                 "price": product.price,
                 "description": product.description
-            })
+            });
         };
         this.logout= function () {
             localStorage.setItem('token','');
