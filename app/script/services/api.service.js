@@ -54,6 +54,16 @@
         this.removeProduct=function (id) {
             return $http.delete(domain+'/product/'+id);
         }
+        this.productUpdate=function (product) {
+            return $http.put(domain+'/product/'+product.id,{
+                "name":product.name,
+                "createdAt":product.createdAt,
+                "updatedAt": new Date(),
+                "category": product.category,
+                "price": product.price,
+                "description": product.description
+            })
+        }
     };
     angular.module('app').service('apiService', apiService);
 })();
