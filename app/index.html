@@ -5,10 +5,7 @@
     <title>Webshop</title>
     <link rel="stylesheet" href="style/index.css" type="text/css"/>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css"/>
-    <!--xeditable-->
     <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
-    <!--xeditable-->
-
 </head>
 <body ng-controller="mainController">
     <header class="container-fluid">
@@ -22,7 +19,7 @@
                 <input id="searchfield" type="text" class="form-control" placeholder="Search" ng-model="search"/>
             </div>
             <div class="col-md-5 col-sm-5" id="left-text">
-                <a class=" glyphicon glyphicon-user" href="#/user/">Profile</a>
+                <a class=" glyphicon glyphicon-user" href="#/user/" ng-if="token">Profile</a>
                 <a class=" glyphicon glyphicon-log-out" href="#/" ng-click="logout()">Logout</a>
             </div>
         </div>
