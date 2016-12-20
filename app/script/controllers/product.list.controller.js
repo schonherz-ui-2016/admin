@@ -8,6 +8,12 @@
             $scope.add = function () {
                 $location.path('/new_product');
             };
+            $scope.propertyName = 'id';
+            $scope.reverse = false;
+            $scope.sortBy = function (propertyName) {
+                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
+                $scope.propertyName = propertyName;
+            }
         })
 
 })();

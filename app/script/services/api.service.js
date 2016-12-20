@@ -53,7 +53,15 @@
         };
         this.removeProduct=function (id) {
             return $http.delete(domain+'/product/'+id);
-        }
+        };
+        this.logout= function () {
+            localStorage.setItem('token','');
+        };
+
+        this.getUserId=function () {
+            return $http.get(domain+'/user/me');
+        };
     };
+
     angular.module('app').service('apiService', apiService);
 })();
