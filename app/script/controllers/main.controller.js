@@ -15,11 +15,7 @@
                 if(stringToken!==""){
                     apiService.getUserId()
                         .then(function (res) {
-                        id=res.data;
-                            apiService.getUser(id)
-                                .then(function (response) {
-                                    $scope.user=response.data;
-                                })
+                        $scope.user=res.data;
                         })
                 }
                });
