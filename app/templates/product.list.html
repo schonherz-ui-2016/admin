@@ -28,7 +28,6 @@
             </tr>
         </thead>
         <tbody >
-
             <tr ng-repeat="product in products| filter:search | orderBy:propertyName:reverse">
                     <td>{{product.id}}</td>
                     <td><a href="#/products/{{product.id}}">{{product.name}} </a></td>

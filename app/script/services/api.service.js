@@ -1,5 +1,4 @@
 (function () {
-
     var domain='http://localhost:1337';
     var apiService = function ($http) {
         this.login = function (email, password) {
@@ -46,6 +45,14 @@
         this.getCategories = function () {
             return $http.get(domain+'/category');
         };
+        this.logout= function () {
+            localStorage.setItem('token','');
+        };
+        this.getUserId=function () {
+            return $http.get(domain+'/user/me');
+        };
+        this.removeProduct=function (id) {
+            return $http.delete(domain+'/product/'+id);
         };
         this.logout= function () {
             localStorage.setItem('token','');
@@ -54,5 +61,7 @@
         this.getUserId=function () {
             return $http.get(domain+'/user/me');
         };
+    };
+
     angular.module('app').service('apiService', apiService);
 })();
