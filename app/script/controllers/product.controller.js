@@ -10,10 +10,23 @@
                        $location.path('/products');
                    })
            };
-
+           $scope.productUpdate=function () {
+             apiService.productUpdate($scope.product)
+                 .then(function (response) {
+                        $scope.product =response.data;
+                 })
+           };
            apiService.getProduct($routeParams.id)
                    .then(function (response) {
                        $scope.product=response.data;
-                   })
+                   });
+            apiService.getCategories()
+                .then(function (res) {
+                    $scope.categories = res.data;
+                });
+            $scope.back=function () {
+                $location.path('/products');
+            };
+
         })
 })();

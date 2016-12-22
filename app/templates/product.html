@@ -6,7 +6,7 @@
         <tbody >
             <tr>
                 <td><h4>Name:</h4></td>
-                <td><h4>{{product.name}}</h4></td>
+                <td><a href="#" editable-text="product.name" onaftersave="productUpdate()"> {{product.name||'empty'}}</a></h4></td>
             </tr>
             <tr>
                 <td>Id:</td>
@@ -22,15 +22,15 @@
             </tr>
             <tr>
                 <td>Category:</td>
-                <td>{{product.category.name}}</td>
+                <td><a href="#" editable-select="product.category" onaftersave="productUpdate()" e-ng-options="category.id as category.name for category in categories"> {{product.category.name|| 'empty'}}</a></td>
             </tr>
             <tr>
                 <td>Description:</td>
-                <td>{{product.description}}</td>
+                <td><a href="#" editable-textarea="product.description" onaftersave="productUpdate()"> {{product.description ||'empty'}}</a></td>
             </tr>
             <tr>
                 <td>Price:</td>
-                <td><i class="icon-white glyphicon-euro">{{product.price}}</i></td>
+                <td><a href="#" editable-number="product.price" onaftersave="productUpdate()"> <i class="icon-white glyphicon-euro">{{product.price||'empty'}}</i></a></td>
             </tr>
         </tbody>
     </table>
@@ -38,6 +38,7 @@
 <div class="row-fluid">
     <!-- Trigger the modal with a button -->
     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-remove"></i>Delete this product</button>
+    <button type="button" class="btn btn-primary" ng-click="back()"><i class="glyphicon glyphicon-backward"></i>  Back</button>
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog modal-sm">

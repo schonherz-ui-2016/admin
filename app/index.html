@@ -5,6 +5,7 @@
     <title>Webshop</title>
     <link rel="stylesheet" href="style/index.css" type="text/css"/>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css"/>
+    <link href="bower_components/angular-xeditable/dist/css/xeditable.css" rel="stylesheet">
 </head>
 <body ng-controller="mainController">
     <header class="container-fluid">
@@ -18,7 +19,7 @@
                 <input id="searchfield" type="text" class="form-control" placeholder="Search" ng-model="search"/>
             </div>
             <div class="col-md-5 col-sm-5" id="left-text">
-                <a class=" glyphicon glyphicon-user" href="#/user/">Profile</a>
+                <a class=" glyphicon glyphicon-user" href="#/user/" ng-if="token">Profile</a>
                 <a class=" glyphicon glyphicon-log-out" href="#/" ng-click="logout()">Logout</a>
             </div>
         </div>
@@ -32,13 +33,14 @@
         </section>
         <div class="col-sm-10 col-md-10 right right-container">
             <h3><div ng-if="!token">Hello, please log in!</div></h3>
-            <h3><div ng-if="token">Hi, {{userId}}</div></h3>
+            <h3><div ng-if="token">Hi, {{user.name}}</div></h3>
             <ng-view></ng-view>
         </div>
     </div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/responsive/build/responsive.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="script/index.js" type="text/javascript"></script>

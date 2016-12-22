@@ -4,17 +4,14 @@
 (function () {
     angular.module('app')
         .controller('mainController', function (apiService, $scope) {
-            var stringToken="";
-            localStorage.setItem('loggedIn', false);
             $scope.$watch(function () {
                 return localStorage.getItem('token');
             }, function (token) {
                 $scope.token=token;
-                stringToken=token;
-                if(stringToken!==""){
+                if(token){
                     apiService.getUserId()
                         .then(function (res) {
-                            $scope.userId=res.data;
+                        $scope.user=res.data;
                         })
                 }
                });
