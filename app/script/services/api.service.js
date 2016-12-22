@@ -64,12 +64,6 @@
                 "description": product.description
             });
         };
-        this.logout= function () {
-            localStorage.setItem('token','');
-        };
-        this.getUserId=function () {
-            return $http.get(domain+'/user/me');
-        };
     };
     angular.module('app').service('apiService', apiService);
 })();

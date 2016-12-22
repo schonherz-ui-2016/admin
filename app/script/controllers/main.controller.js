@@ -4,7 +4,6 @@
 (function () {
     angular.module('app')
         .controller('mainController', function (apiService, $scope) {
-            localStorage.setItem('loggedIn', false);
             $scope.$watch(function () {
                 return localStorage.getItem('token');
             }, function (token) {
@@ -20,6 +19,5 @@
             $scope.logout=function logout() {
                 apiService.logout();
             }
-
         } )
 })();
