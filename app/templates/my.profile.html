@@ -1,0 +1,44 @@
+<div><h2>My profile:</h2></div>
+<div class="row-fluid">
+    <table class="table table-bordered">
+
+        <tbody >
+        <tr>
+            <td><h4>Name:</h4></td>
+            <td><a href="#" editable-text="myProfile.name" onaftersave="myProfileUpdate()"> {{myProfile.name||'empty'}}</a></h4></td>
+        </tr>
+        <tr>
+            <td>Id:</td>
+            <td>{{myProfile.id}}</td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><a href="#" editable-text="myProfile.address" onaftersave="myProfileUpdate()"> {{myProfile.address}}</a></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td><a href="#" editable-text="myProfile.email" onaftersave="myProfileUpdate()"> {{myProfile.email}}</a></td>
+        </tr>
+        <tr>
+            <td>Created:</td>
+            <td>{{myProfile.createdAt}}</td>
+        </tr>
+        <tr>
+            <td>Updated:</td>
+            <td> {{myProfile.updatedAt}}</td>
+        </tr>
+        <tr>
+            <td>phone:</td>
+            <td><a href="#" editable-select="myProfile.phone" onaftersave="myProfileUpdate()"> {{myProfile.phone|| 'empty'}}</a></td>
+        </tr>
+        <tr>
+            <td>Balance:</td>
+            <td> {{myProfile.balance ||'empty'}}</td>
+        </tr>
+        <tr>
+            <td>Rights:</td>
+            <td> {{myProfile.rights ||'empty'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -37,6 +37,10 @@
                     templateUrl: 'templates/add.product.html',
                     controller: 'addProductController'
                 })
+                .when('/my_profile',{
+                    templateUrl: 'templates/my.profile.html',
+                    controller: 'myProfileController'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
