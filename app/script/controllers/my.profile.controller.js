@@ -3,15 +3,17 @@
  */
 (function () {
     angular.module('app')
-        .controller('myProfileController',function (apiService, $http, $scope) {
-
+        .controller('myProfileController',function (apiService, $scope) {
+                // $scope.myProfile="";,
                 apiService.getUserId()
                     .then(function (response) {
                         $scope.myProfile=response.data;
-                        console.log($scope.myProfile);
                     });
                 $scope.myProfileUpdate=function () {
-                    console.log("update");
+                    apiService.myProfileUpdate($scope.myProfile)
+                        .then(function (response) {
+                            $scope.myProfile=response.data;
+                        });
                 }
 
         })

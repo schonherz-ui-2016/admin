@@ -64,6 +64,15 @@
                 "description": product.description
             });
         };
+        this.myProfileUpdate=function (user) {
+            return $http.put(domain+'/user/'+user.id,{
+                "email": user.email,
+                "name":user.name,
+                "address":user.address,
+                "phone":user.phone,
+                "updatedAt": new Date()
+            });
+        };
     };
     angular.module('app').service('apiService', apiService);
 })();

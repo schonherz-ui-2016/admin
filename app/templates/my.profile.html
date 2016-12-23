@@ -13,19 +13,19 @@
         </tr>
         <tr>
             <td>Address:</td>
-            <td><a href="#" editable-text="myProfile.address" onaftersave="myProfileUpdate()"> {{myProfile.address}}</a></td>
+            <td><a href="#" editable-text="myProfile.address" onaftersave="myProfileUpdate()"> {{myProfile.address||'empty'}}</a></td>
         </tr>
         <tr>
             <td>Email:</td>
-            <td><a href="#" editable-text="myProfile.email" onaftersave="myProfileUpdate()"> {{myProfile.email}}</a></td>
+            <td><a href="#" editable-="myProfile.email" onaftersave="myProfileUpdate()"> {{myProfile.email||'empty'}}</a></td>
         </tr>
         <tr>
             <td>Created:</td>
-            <td>{{myProfile.createdAt}}</td>
+            <td>{{myProfile.createdAt||'empty'}}</td>
         </tr>
         <tr>
             <td>Updated:</td>
-            <td> {{myProfile.updatedAt}}</td>
+            <td> {{myProfile.updatedAt||'empty'}}</td>
         </tr>
         <tr>
             <td>phone:</td>
