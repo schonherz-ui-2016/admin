@@ -10,8 +10,8 @@
                 $scope.token=token;
                 if(token){
                     apiService.getUserId()
-                        .then(function (res) {
-                        $scope.user=res.data;
+                        .then(function (response) {
+                            $scope.user=response.data;
                         })
                 }
                });
@@ -19,6 +19,5 @@
             $scope.logout=function logout() {
                 apiService.logout();
             }
-
         } )
 })();
