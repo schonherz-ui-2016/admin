@@ -4,7 +4,6 @@
 (function () {
     angular.module('app')
         .controller('myProfileController',function (apiService, $scope) {
-                // $scope.myProfile="";,
                 apiService.getUserId()
                     .then(function (response) {
                         $scope.myProfile=response.data;
@@ -15,6 +14,7 @@
                             $scope.myProfile=response.data;
                         });
                 }
+
 
         })
 })();
