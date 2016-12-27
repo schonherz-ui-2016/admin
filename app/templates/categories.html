@@ -1,5 +1,5 @@
 <div ng-repeat="(key, value) in products| filter: search">
-    <div ng-click="openTable(value); open = !open" class="row-fluid">{{value[0].category.name}}
+    <div ng-click="open = !open" class="row-fluid">{{value[0].category.name}}
         <table ng-show="open" class="table table-bordered">
             <thead>
                 <tr>

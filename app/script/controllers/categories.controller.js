@@ -8,8 +8,6 @@
             apiService.getProducts()
                 .then(function (response) {
                     $scope.products = [];
-                    //console.log(response);
-                    //console.log("asdasd");
                     angular.forEach(response.data, function (x) {
                         var found = false;
                         angular.forEach($scope.products, function (value, key) {
@@ -20,23 +18,14 @@
                         });
                         if(!found){
                             $scope.products.push([]);
-                            //console.log($scope.products);
                             $scope.products[$scope.products.length-1].push(x);
                         }
-                        //if(!$scope.products[x.category.name]){
-                        //    $scope.products[x.category.name] = [];
-                        //}
 
                     });
-                   // console.log($scope.products);
                 });
             $scope.add = function () {
                 $location.path('/new_product');
             };
-            $scope.openTable = function (name) {
-               // console.log(name);
-            }
-
         })
 })();
 
