@@ -14,7 +14,7 @@
         </tr>
         <tr>
             <td>Address:</td>
-            <td><a href="#" editable-text="myProfile.address" onaftersave="myProfileUpdate()"> {{myProfile.address||'empty'}}</a></td>
+            <td><a href="#" editable-text="myProfile.address"  onaftersave="myProfileUpdate()"> {{myProfile.address||'empty'}}</a></td>
         </tr>
         <tr>
             <td>Email:</td>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td>phone:</td>
-            <td><a href="#" editable-tel="myProfile.phone" onaftersave="myProfileUpdate()" id="tel" data-type="tel" e-pattern="\d{2}\-\d{3}\-\d{4}" e-title="xx-xxx-xxxx"> {{myProfile.phone|| 'empty'}}</a></td>
+            <td><a href="#" editable-text="myProfile.phone" onbeforesave="checkPhone($data)" onaftersave="myProfileUpdate()" id="tel" data-type="text"  e-title="xx-xxx-xxxx"> {{myProfile.phone|| 'empty'}}</a></td>
         </tr>
         <tr>
             <td>Balance:</td>
