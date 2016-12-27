@@ -1,4 +1,4 @@
-<div ng-repeat="(key, value) in products| filter: search">
+<div ng-repeat="(key, value) in products | filter: search">
     <div ng-click="open = !open" class="row-fluid">{{value[0].category.name}}
         <table ng-show="open" class="table table-bordered">
             <thead>
@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="product in value">
+                <tr ng-repeat="product in value | filter: search">
                     <td>{{product.id}}</td>
                     <td><a href="#/products/{{product.id}}">{{product.name}} </a></td>
                     <td>{{product.category.name}}</td>
