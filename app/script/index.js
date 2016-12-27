@@ -37,6 +37,13 @@
                     templateUrl: 'templates/users.details.html',
                     controller: 'usersDetailsController'
                 })
+
+                .when('/deleteUser/:id',{
+                templateUrl:'/',
+                controller: 'delUserController',
+            })
+
+
                 .otherwise({
                     redirectTo: '/'
                 });

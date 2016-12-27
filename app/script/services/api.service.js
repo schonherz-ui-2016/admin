@@ -38,6 +38,9 @@
         this.userUpdate = function (user) {
            return $http.put(domain+'/user/'+user.id, user);
         }
+        this.delUser = function (id) {
+            return $http.delete(domain+'/user/'+id);
+        }
     };
     angular.module('app').service('apiService', apiService);
 })();
