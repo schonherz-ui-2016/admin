@@ -7,11 +7,15 @@
                 apiService.getUserId()
                     .then(function (response) {
                         $scope.myProfile=response.data;
+                        $scope.right=response.data.rights;
                     });
                 $scope.myProfileUpdate=function () {
+
                     apiService.myProfileUpdate($scope.myProfile)
                         .then(function (response) {
                             $scope.myProfile=response.data;
+                            console.log("update:")
+                            console.log($scope.right);
                         })
                 };
 
@@ -21,5 +25,10 @@
                     return "Your phone number should look like: 'xx-xxx-xxxx'";
                 }
             };
-        })
+            $scope.rights=[ {id:1,name:"ADMIN"},
+                            {id:2, name:"CUSTOMER"},
+                            {id:3, name: "WAREHOUSE_OWNER"}];
+
+        });
+
 })();

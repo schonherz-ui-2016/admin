@@ -70,7 +70,8 @@
                 "name":user.name,
                 "address":user.address,
                 "phone":user.phone,
-                "updatedAt": new Date()
+                "updatedAt": new Date(),
+                "rights": user.rights
             });
         };
     };

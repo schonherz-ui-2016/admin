@@ -38,7 +38,7 @@
         </tr>
         <tr>
             <td>Rights:</td>
-            <td> {{myProfile.rights ||'empty'}}</td>
+            <td><a href="#" editable-select="myProfile.rights" e-ng-options="right.id as right.name+' id:'+right.id for right in rights"  onaftersave="myProfileUpdate()"> {{myProfile.rights ||'empty'}}</a></td>
         </tr>
         </tbody>
     </table>
