@@ -2,7 +2,7 @@
 <h1>Product list:</h1>
 <div ng-repeat="(key, value) in products | filter: search">
     <div class="row-fluid">
-        <h3><input type="radio" name="product-list-directive" value="{{value[0].category.name}}"/>{{value[0].category.name}}</h3>
+        <h3>{{value[0].category}}</h3>
         <div product-list-directive data="value"></div>
     </div>
 </div>
