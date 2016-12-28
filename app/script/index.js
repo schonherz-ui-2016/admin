@@ -9,19 +9,19 @@
             $locationProvider.hashPrefix('');
 
             $routeProvider
-                .when('/login',{
+                .when('/login', {
                     templateUrl: 'templates/login.html',
                     controller: 'loginController'
                 })
-                .when('/register',{
+                .when('/register', {
                     templateUrl: 'templates/register.html',
                     controller: 'registerController'
                 })
-                .when('/products',{
-                    templateUrl:'templates/product.list.html',
-                    controller:'productListController'
+                .when('/products', {
+                    templateUrl: 'templates/product.list.html',
+                    controller: 'productListController'
                 })
-                .when('/products/:id',{
+                .when('/products/:id', {
                     templateUrl: 'templates/product.html',
                     controller: 'productController'
                 })
@@ -37,15 +37,23 @@
                     templateUrl: 'templates/add.product.html',
                     controller: 'addProductController'
                 })
-                .when('/my_profile',{
+                .when('/my_profile', {
                     templateUrl: 'templates/my.profile.html',
                     controller: 'myProfileController'
                 })
+                .when('/categories', {
+                    templateUrl: 'templates/categories.html',
+                    controller: 'categoriesController'
+                })
+                .when('/categories/:id', {
+                    templateUrl: 'templates/categories.details.html',
+                    controller: 'categoriesDetailsController'
+                })
                 .otherwise({
                     redirectTo: '/'
-                });
-
+                })
         })
+
 
         .factory('httpRequestInterceptor',function () {
             return{

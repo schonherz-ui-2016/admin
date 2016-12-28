@@ -45,6 +45,9 @@
         this.getCategories = function () {
             return $http.get(domain+'/category');
         };
+        this.getCategory = function (id) {
+            return $http.get(domain+'/category/'+id);
+        };
         this.logout= function () {
             localStorage.setItem('token','');
         };

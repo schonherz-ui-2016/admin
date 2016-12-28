@@ -1,0 +1,14 @@
+<div class="row-fluid">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Categories</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="category in categories | filter: search">
+                <td><a href="#/categories/{{category.id}}">{{category.name}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
