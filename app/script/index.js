@@ -19,7 +19,8 @@
                 })
                 .when('/products',{
                     templateUrl:'templates/product.list.html',
-                    controller:'productListController'
+                    controller:'productListController',
+                    directive: 'productListDirective'
                 })
                 .when('/products/:id',{
                     templateUrl: 'templates/product.html',

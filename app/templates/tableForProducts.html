@@ -1,9 +1,8 @@
-
-<h1>Product list:</h1>
-<div product-list-directive></div>
-<!--div class="row-fluid">
-    <table class="table table-bordered">
-        <thead>
+<div ng-repeat="(key, value) in products | filter: search">
+    <div class="row-fluid">
+        <h3>{{value[0].category.name}}</h3>
+        <table class="table table-bordered">
+            <thead>
             <tr>
                 <th class="sort" ng-click="sortBy('id')">
                     <span>ID</span>
@@ -26,20 +25,16 @@
                     <span class="sortorder" ng-show="propertyName === 'description'" ng-class="{reverse: reverse}"></span>
                 </th>
             </tr>
-        </thead>
-        <tbody >
-            <tr ng-repeat="product in products| filter:search | orderBy:propertyName:reverse">
+            </thead>
+            <tbody>
+                <tr ng-repeat="product in value | filter: search">
                     <td>{{product.id}}</td>
                     <td><a href="#/products/{{product.id}}">{{product.name}} </a></td>
                     <td>{{product.category.name}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.description}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div-->
-<div class="row-fluid">
-    <button class="btn btn-primary" ng-click="add()"> <i class="icon-white glyphicon-plus"></i>Add product</button>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-
-
