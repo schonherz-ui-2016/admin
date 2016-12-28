@@ -1,40 +1,46 @@
-<div ng-repeat="(key, value) in products | filter: search">
-    <div class="row-fluid">
-        <h3>{{value[0].category.name}}</h3>
-        <table class="table table-bordered">
-            <thead>
-            <tr>
-                <th class="sort" ng-click="sortBy('id')">
-                    <span>ID</span>
-                    <span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('name')">
-                    <span>Name</span>
-                    <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('category.name')">
-                    <span>Category</span>
-                    <span class="sortorder" ng-show="propertyName === 'category.name'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('price')">
-                    <span>Price</span>
-                    <span class="sortorder" ng-show="propertyName === 'price'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('description')">
-                    <span>Description</span>
-                    <span class="sortorder" ng-show="propertyName === 'description'" ng-class="{reverse: reverse}"></span>
-                </th>
-            </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="product in value | filter: search">
-                    <td>{{product.id}}</td>
-                    <td><a href="#/products/{{product.id}}">{{product.name}} </a></td>
-                    <td>{{product.category.name}}</td>
-                    <td>{{product.price}}</td>
-                    <td>{{product.description}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+<!--table class="table table-bordered">
+    <thead>
+        <tr>
+            <th class="sort" ng-click="sortBy('id')">
+                <span>ID</span>
+                <span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th class="sort" ng-click="sortBy('name')">
+                <span>Name</span>
+                <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th class="sort" ng-click="sortBy('category.name')">
+                <span>Category</span>
+                <span class="sortorder" ng-show="propertyName === 'category.name'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th class="sort" ng-click="sortBy('price')">
+                <span>Price</span>
+                <span class="sortorder" ng-show="propertyName === 'price'" ng-class="{reverse: reverse}"></span>
+            </th>
+            <th class="sort" ng-click="sortBy('description')">
+                <span>Description</span>
+                <span class="sortorder" ng-show="propertyName === 'description'" ng-class="{reverse: reverse}"></span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="product in data | filter: search">
+            <td>{{product.id}}</td>
+            <td><a href="#/products/{{product.id}}">{{product.name}} </a></td>
+            <td>{{product.category.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
+        </tr>
+    </tbody>
+</table-->
+
+<table class="table table-bordered">
+    <thead>
+        <th class="sort" ng-click="sortBy('attribute')" ng-repeat="attribute in attributes">{{attribute}}</th>
+    </thead>
+    <tbody>
+        <tr ng-repeat="product in products">
+            <td ng-repeat="attribute in attributes">product[attribute]</td>
+        </tr>
+    </tbody>
+</table>

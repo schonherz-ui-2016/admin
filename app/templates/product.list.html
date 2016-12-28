@@ -1,43 +1,11 @@
 
 <h1>Product list:</h1>
-<div product-list-directive></div>
-<!--div class="row-fluid">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th class="sort" ng-click="sortBy('id')">
-                    <span>ID</span>
-                    <span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('name')">
-                    <span>Name</span>
-                    <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('category.name')">
-                    <span>Category</span>
-                    <span class="sortorder" ng-show="propertyName === 'category.name'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('price')">
-                    <span>Price</span>
-                    <span class="sortorder" ng-show="propertyName === 'price'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('description')">
-                    <span>Description</span>
-                    <span class="sortorder" ng-show="propertyName === 'description'" ng-class="{reverse: reverse}"></span>
-                </th>
-            </tr>
-        </thead>
-        <tbody >
-            <tr ng-repeat="product in products| filter:search | orderBy:propertyName:reverse">
-                    <td>{{product.id}}</td>
-                    <td><a href="#/products/{{product.id}}">{{product.name}} </a></td>
-                    <td>{{product.category.name}}</td>
-                    <td>{{product.price}}</td>
-                    <td>{{product.description}}</td>
-            </tr>
-        </tbody>
-    </table>
-</div-->
+<div ng-repeat="(key, value) in products | filter: search">
+    <div class="row-fluid">
+        <h3><input type="radio" name="product-list-directive" value="{{value[0].category.name}}"/>{{value[0].category.name}}</h3>
+        <div product-list-directive data="value"></div>
+    </div>
+</div>
 <div class="row-fluid">
     <button class="btn btn-primary" ng-click="add()"> <i class="icon-white glyphicon-plus"></i>Add product</button>
 </div>

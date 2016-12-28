@@ -20,8 +20,9 @@
                                 $scope.products.push([]);
                                 $scope.products[$scope.products.length-1].push(x);
                             }
-
                         });
+                        $scope.attributes = Object.keys($scope.data[0]);
+                        console.log($scope.data[0]);
                     });
             $scope.add = function () {
                 $location.path('/new_product');
