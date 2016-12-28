@@ -1,24 +1,14 @@
-<div ng-repeat="(key, value) in products | filter: search">
-    <div ng-click="open = !open" class="row-fluid">{{value[0].category.name}}
-        <table ng-show="open" class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Price</th>
-                    <th>Description</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="product in value | filter: search">
-                    <td>{{product.id}}</td>
-                    <td><a href="#/products/{{product.id}}">{{product.name}} </a></td>
-                    <td>{{product.category.name}}</td>
-                    <td>{{product.price}}</td>
-                    <td>{{product.description}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="row-fluid">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Categories</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="category in categories | filter: search">
+                <td><a href="#/categories/{{category.id}}">{{category.name}}</a></td>
+            </tr>
+        </tbody>
+    </table>
 </div>
