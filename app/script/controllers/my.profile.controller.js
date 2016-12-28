@@ -14,8 +14,6 @@
                     apiService.myProfileUpdate($scope.myProfile)
                         .then(function (response) {
                             $scope.myProfile=response.data;
-                            console.log("update:")
-                            console.log($scope.right);
                         })
                 };
 
