@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module('app')
-        .controller('myProfileController',function (apiService, $scope) {
+        .controller('myProfileController',function (apiService, $scope, $location) {
                 apiService.getUserId()
                     .then(function (response) {
                         $scope.myProfile=response.data;
@@ -27,6 +27,21 @@
                             {id:2, name:"CUSTOMER"},
                             {id:3, name: "WAREHOUSE_OWNER"}];
 
-        });
+            $scope.removeMyProfile=function () {
+                    console.log("remove");
+                    apiService.removeUser($scope.myProfile.id)
+                        .then(function () {
+                            apiService.logout();
+                            $location.path( "/" );
+                        });
+             };
+            $scope.back=function () {
+                $location.path('/');
+            };
+            $scope.changePassword=function () {
+
+            }
+
+            });
 
 })();

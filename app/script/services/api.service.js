@@ -74,6 +74,9 @@
                 "rights": user.rights
             });
         };
+        this.removeUser=function (id) {
+            return $http.delete(domain+'/user/'+id);
+        }
     };
     angular.module('app').service('apiService', apiService);
 })();
