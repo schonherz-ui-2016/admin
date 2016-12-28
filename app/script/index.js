@@ -2,7 +2,7 @@
 
 
     angular
-        .module('app',['ngRoute'])
+        .module('app',['ngRoute','xeditable'])
 
 
         .config(function ($routeProvider, $locationProvider) {
@@ -37,6 +37,10 @@
                     templateUrl: 'templates/users.details.html',
                     controller: 'usersDetailsController'
                 })
+                .when('/new_product', {
+                    templateUrl: 'templates/add.product.html',
+                    controller: 'addProductController'
+                })
                 .otherwise({
                     redirectTo: '/'
                 });
@@ -46,7 +50,9 @@
         .factory('httpRequestInterceptor',function () {
             return{
                 request: function (config) {
+                    if(localStorage.getItem('token')!==''){
                     config.headers['Authorization'] = 'JWT ' + localStorage.getItem('token');
+                    }
                 return config;
                 }
             }
@@ -54,5 +60,10 @@
 
         .config(function ($httpProvider) {
             $httpProvider.interceptors.push('httpRequestInterceptor');
+        })
+    // xeditable
+        .run(function(editableOptions) {
+            editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
         });
+    // xeditable
 })();
