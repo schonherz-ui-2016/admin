@@ -4,7 +4,6 @@
             apiService.getCategory($routeParams.id)
                 .then(function (res) {
                     $scope.category = res.data;
-                    console.log($scope.category);
                 })
         })
 })();
