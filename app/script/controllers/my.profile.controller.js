@@ -28,7 +28,6 @@
                             {id:3, name: "WAREHOUSE_OWNER"}];
 
             $scope.removeMyProfile=function () {
-                    console.log("remove");
                     apiService.removeUser($scope.myProfile.id)
                         .then(function () {
                             apiService.logout();
