@@ -48,6 +48,12 @@
         this.getCategory = function (id) {
             return $http.get(domain+'/category/'+id);
         };
+        this.categoryUpdate=function (category) {
+            return $http.put(domain+'/category/'+category.id, {
+                "name": category.name,
+                "updatedAt": new Date()
+            })
+        };
         this.logout= function () {
             localStorage.setItem('token','');
         };

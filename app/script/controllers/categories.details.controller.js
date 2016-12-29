@@ -5,5 +5,8 @@
                 .then(function (res) {
                     $scope.category = res.data;
                 })
+            $scope.categoryUpdate=function () {
+                apiService.categoryUpdate($scope.category);
+            }
         })
 })();
