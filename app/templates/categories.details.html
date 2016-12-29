@@ -19,7 +19,7 @@
             </tr>
             <tr>
                 <td>Parent:</td>
-                <td>{{category.parent.name}}</td>
+                <td><a href="#" editable-select="category.parent.id" e-ng-options="category.id as category.name for category in categories" onaftersave="categoryUpdate()"> {{category.parent.name}}</a></td>
             </tr>
         </tbody>
     </table>

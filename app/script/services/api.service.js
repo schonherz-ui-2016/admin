@@ -51,7 +51,12 @@
         this.categoryUpdate=function (category) {
             return $http.put(domain+'/category/'+category.id, {
                 "name": category.name,
-                "updatedAt": new Date()
+                "updatedAt": new Date(),
+                "parent":{
+                    "id":category.parent.id
+                }
+                // "parent.name":category.parent.name,
+                // "parent.id":category.parent.id
             })
         };
         this.logout= function () {
