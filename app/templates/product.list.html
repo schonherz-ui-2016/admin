@@ -1,9 +1,18 @@
 
 <h1>Product list:</h1>
-<div ng-repeat="(key, value) in products | filter: search">
+<div class="product-list-by-categories">
+    <input type="checkbox" ng-click="open = !open"/>
+    <span>Show product list by categories</span>
+</div>
+<div ng-show="open" ng-repeat="(key, value) in products | filter: search">
     <div class="row-fluid">
         <h3>{{value[0].category}}</h3>
         <div product-list-directive data="value"></div>
+    </div>
+</div>
+<div ng-show="!open">
+    <div class="row-fluid" ng-repeat="product in allProducts">
+        <div product-list-directive data="product"></div>
     </div>
 </div>
 <div class="row-fluid">

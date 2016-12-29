@@ -4,18 +4,20 @@
             apiService.getProducts()
                     .then(function (response) {
                         $scope.products = [];
+                        $scope.allProducts = [];
+                        $scope.allProducts[0] = response.data;
                         angular.forEach(response.data, function (x) {
                             x.category = x.category.name;
                             var found = false;
                             angular.forEach($scope.products, function (value, key) {
-                                if(value[0].category === x.category){
+                                if (value[0].category === x.category) {
                                     $scope.products[key].push(x);
                                     found = true;
                                 }
                             });
-                            if(!found){
+                            if (!found) {
                                 $scope.products.push([]);
-                                $scope.products[$scope.products.length-1].push(x);
+                                $scope.products[$scope.products.length - 1].push(x);
                             }
                         });
                     });
