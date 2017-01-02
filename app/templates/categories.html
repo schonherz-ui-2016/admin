@@ -4,12 +4,16 @@
             <tr>
                 <th>Categories</th>
                 <th>Parent</th>
+                <th>Add</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="category in categories | filter: search">
                 <td><a href="#/categories/{{category.id}}">{{category.name}}</a></td>
                 <td>{{category.parent.name}}</td>
+                <td><button type="button" class="btn btn-info">Add</button></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
             </tr>
         </tbody>
     </table>
