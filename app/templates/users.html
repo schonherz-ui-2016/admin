@@ -1,49 +1,5 @@
 <h1>Users list:</h1>
 
-<div class="row-fluid">
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th class="sort" ng-click="sortBy('id')">
-                    <span>ID</span>
-                    <span class="sortorder" ng-show="propertyName === 'id'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('name')">
-                    <span>Name</span>
-                    <span class="sortorder" ng-show="propertyName === 'name'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('email')">
-                    <span>E-mail</span>
-                    <span class="sortorder" ng-show="propertyName === 'email'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('address')">
-                    <span>Address</span>
-                    <span class="sortorder" ng-show="propertyName === 'address'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('phone')">
-                    <span>Phone</span>
-                    <span class="sortorder" ng-show="propertyName === 'phone'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('balance')">
-                    <span>Balance</span>
-                    <span class="sortorder" ng-show="propertyName === 'balance'" ng-class="{reverse: reverse}"></span>
-                </th>
-                <th class="sort" ng-click="sortBy('rights')">
-                    <span>Rights</span>
-                    <span class="sortorder" ng-show="propertyName === 'rights'" ng-class="{reverse: reverse}"></span>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="user in users| filter:search | orderBy:propertyName:reverse">
-                <td>{{user.id}}</td>
-                <td><a href="#/users/{{user.id}}">{{user.name}}</a></td>
-                <td>{{user.email}}</td>
-                <td>{{user.address}}</td>
-                <td>{{user.phone}}</td>
-                <td>{{user.balance}}</td>
-                <td>{{user.rights}}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="row-fluid" ng-if="users">
+    <div sortable-list-directive data="users"></div>
 </div>

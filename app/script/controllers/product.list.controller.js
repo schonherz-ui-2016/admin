@@ -1,11 +1,14 @@
 (function () {
     angular.module('app')
         .controller('productListController', function ($http, $scope, $locale, apiService, $location) {
+            apiService.getCategories()
+                .then(function (res) {
+                    $scope.categories = res.data;
+                });
             apiService.getProducts()
                     .then(function (response) {
+                        $scope.allProducts = response.data;
                         $scope.products = [];
-                        $scope.allProducts = [];
-                        $scope.allProducts[0] = response.data;
                         angular.forEach(response.data, function (x) {
                             x.category = x.category.name;
                             var found = false;

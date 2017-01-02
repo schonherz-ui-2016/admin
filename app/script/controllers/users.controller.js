@@ -4,13 +4,11 @@
         .controller('usersController', function (apiService, $scope) {
             apiService.getUsers()
                 .then(function (res) {
-                    $scope.users = res.data;
+                    $scope.users = [];
+                    angular.forEach(res.data, function (x) {
+                        var obj = {id: x.id, email: x.email, createdAt: x.createdAt, updatedAt: x.updatedAt};
+                        $scope.users.push(obj);
+                    })
                 });
-            $scope.propertyName = 'id';
-            $scope.reverse = false;
-            $scope.sortBy = function (propertyName) {
-                $scope.reverse = ($scope.propertyName === propertyName) ? !$scope.reverse : false;
-                $scope.propertyName = propertyName;
-            }
         })
 })();

@@ -5,8 +5,8 @@
         </th>
     </thead>
     <tbody>
-        <tr ng-repeat="product in data | filter: search | orderBy:propertyName:reverse">
-            <td ng-repeat="attribute in attributes">{{product[attribute]}}</td>
+        <tr ng-repeat="data in data | filter: search | orderBy:propertyName:reverse">
+            <td ng-repeat="attribute in attributes">{{data[attribute]}}</td>
         </tr>
     </tbody>
 </table>
