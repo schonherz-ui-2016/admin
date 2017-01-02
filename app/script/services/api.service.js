@@ -52,11 +52,7 @@
             return $http.put(domain+'/category/'+category.id, {
                 "name": category.name,
                 "updatedAt": new Date(),
-                "parent":{
-                    "id":category.parent.id
-                }
-                // "parent.name":category.parent.name,
-                // "parent.id":category.parent.id
+                "parent":category.parent.id
             })
         };
         this.logout= function () {
