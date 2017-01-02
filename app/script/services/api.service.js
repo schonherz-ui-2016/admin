@@ -86,7 +86,16 @@
         };
         this.removeUser=function (id) {
             return $http.delete(domain+'/user/'+id);
-        }
+        };
+        this.addCategory=function (category) {
+            return $http.post(domain+'/category',{
+                "name":category.name,
+                "parent":category.parent
+            })
+        };
+        this.removeCategory=function (id) {
+            return $http.delete(domain+'/category/'+id);
+        };
     };
     angular.module('app').service('apiService', apiService);
 })();

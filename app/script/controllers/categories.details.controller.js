@@ -21,5 +21,21 @@
                     console.log("categories:");
                     console.log($scope.categories);
                 });
+            $scope.back=function () {
+                $location.path('/categories');
+            };
+            $scope.addNewCategory=function (newCategory) {
+                newCategory.parent=$scope.category.id;
+                apiService.addCategory(newCategory);
+
+            };
+            $scope.removeCategory=function () {
+                console.log($scope.category.id);
+                apiService.removeCategory($scope.category.id)
+                    .then(function (res) {
+                        console.log(res);
+                        $location.path('/categories');
+                    })
+            }
         })
 })();
