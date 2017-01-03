@@ -6,7 +6,7 @@
     </thead>
     <tbody>
         <tr ng-repeat="data in data | filter: search | orderBy:propertyName:reverse">
-            <td ng-repeat="attribute in attributes">{{data[attribute]}}</td>
+            <td ng-repeat="attribute in attributes"><a href="#/{{link}}/{{data.id}}">{{data[attribute]}}</a></td>
         </tr>
     </tbody>
 </table>

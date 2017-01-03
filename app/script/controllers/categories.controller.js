@@ -5,7 +5,10 @@
                 .then(function (res) {
                     $scope.categories = [];
                     angular.forEach(res.data, function (x) {
-                        var obj = {id: x.id, name: x.name, createdAt: x.createdAt, updatedAt: x.updatedAt};
+                        var obj = {id: x.id, name: x.name, parent: x.parent, createdAt: x.createdAt, updatedAt: x.updatedAt};
+                        if(obj.parent != null){
+                            obj.parent = x.parent.name;
+                        }
                         $scope.categories.push(obj);
                     });
                 });

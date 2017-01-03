@@ -4,7 +4,9 @@
             return {
                 restrict: 'A',
                 scope: {
-                    data: '='
+                    data: '=',
+                    link: '='
+
                 },
                 controller: 'sortableListController',
                 templateUrl: 'script/directives/template_and_js_for_sortable_list_directive/table.html'
