@@ -4,28 +4,15 @@
             <tr>
                 <th>Categories</th>
                 <th>Parent</th>
-                <th>Add</th>
-                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="category in categories | filter: search">
                 <td><a href="#/categories/{{category.id}}">{{category.name}}</a></td>
                 <td>{{category.parent.name}}</td>
-                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategory" ng-click="loadCategory(category)"><i class="icon-white glyphicon-plus"></i>Add</button></td>
-                <td><button type="button" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i>Delete</button></td>
-            </tr>
+                </tr>
         </tbody>
     </table>
 
-    <div class="modal fade" id="addCategory" role="dialog">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">x</button>
-                    <h4 class="modal-title">This category:{{loadCategory.name}}</h4>
-                </div>
-            </div>
-        </div>
-    </div>
+
 </div>
