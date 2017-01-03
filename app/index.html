@@ -2,6 +2,7 @@
 <html lang="en" ng-app="app">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Webshop</title>
     <link rel="stylesheet" href="style/index.css" type="text/css"/>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" type="text/css"/>
@@ -19,7 +20,7 @@
                 <input id="searchfield" type="text" class="form-control" placeholder="Search" ng-model="search"/>
             </div>
             <div class="col-md-5 col-sm-5" id="left-text">
-                <a class=" glyphicon glyphicon-user" href="#/user/" ng-if="token">Profile</a>
+                <a class=" glyphicon glyphicon-user" href="#/my-profile" ng-if="token">Profile</a>
                 <a class=" glyphicon glyphicon-log-out" href="#/" ng-click="logout()">Logout</a>
             </div>
         </div>
@@ -45,6 +46,7 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="script/index.js" type="text/javascript"></script>
+    <script src="script/controllers/my.profile.controller.js" type="text/javascript"></script>
     <script src="script/services/api.service.js" type="text/javascript"></script>
     <script src="script/controllers/login.controller.js" type="text/javascript"></script>
     <script src="script/controllers/register.controller.js" type="text/javascript"></script>

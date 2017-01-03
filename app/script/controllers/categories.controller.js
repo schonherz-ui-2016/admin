@@ -12,5 +12,5 @@
                         $scope.categories.push(obj);
                     });
                 });
-        })
+        });
 })();

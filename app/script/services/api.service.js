@@ -48,6 +48,13 @@
         this.getCategory = function (id) {
             return $http.get(domain+'/category/'+id);
         };
+        this.categoryUpdate=function (category) {
+            return $http.put(domain+'/category/'+category.id, {
+                "name": category.name,
+                "updatedAt": new Date(),
+                "parent":category.parent.id
+            })
+        };
         this.logout= function () {
             localStorage.setItem('token','');
         };
@@ -66,6 +73,28 @@
                 "price": product.price,
                 "description": product.description
             });
+        };
+        this.myProfileUpdate=function (user) {
+            return $http.put(domain+'/user/'+user.id,{
+                "email": user.email,
+                "name":user.name,
+                "address":user.address,
+                "phone":user.phone,
+                "updatedAt": new Date(),
+                "rights": user.rights
+            });
+        };
+        this.removeUser=function (id) {
+            return $http.delete(domain+'/user/'+id);
+        };
+        this.addCategory=function (category) {
+            return $http.post(domain+'/category',{
+                "name":category.name,
+                "parent":category.parent
+            })
+        };
+        this.removeCategory=function (id) {
+            return $http.delete(domain+'/category/'+id);
         };
     };
     angular.module('app').service('apiService', apiService);
