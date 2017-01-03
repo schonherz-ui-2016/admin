@@ -5,5 +5,5 @@
                 .then(function (res) {
                     $scope.categories = res.data;
                 });
-        })
+        });
 })();

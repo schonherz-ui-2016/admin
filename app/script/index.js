@@ -37,7 +37,7 @@
                     templateUrl: 'templates/add.product.html',
                     controller: 'addProductController'
                 })
-                .when('/my_profile', {
+                .when('/my-profile', {
                     templateUrl: 'templates/my.profile.html',
                     controller: 'myProfileController'
                 })
