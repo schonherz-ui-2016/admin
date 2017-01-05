@@ -35,7 +35,6 @@
         this.userUpdate = function (user) {
            return $http.put(domain+'/user/'+user.id, user);
         }
-        };
         this.addProduct = function (product) {
             return $http.post(domain+'/product', {
                 "name": product.name,
@@ -67,6 +66,7 @@
                 "price": product.price,
                 "description": product.description
             });
+        };
         };
     angular.module('app').service('apiService', apiService);
 })();

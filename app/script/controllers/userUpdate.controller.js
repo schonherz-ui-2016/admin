@@ -4,16 +4,18 @@
 (function () {
     angular.module('app')
         .controller('userUpdateController', function ($http, apiService, $scope, $location, $routeParams) {
-            apiService.getUsersId($routeParams.id)
-                .then(function (response) {
-                    $scope.user = response.data
-                })
-            $scope.register=function () {
-                apiService.userUpdate($scope.user)
-                    .then(function () {
-                        $location.path( "/users" );
+                apiService.getUser($routeParams.id)
+                    .then(function (response) {
+                        $scope.user = response.data
                     })
-            }
+
+                $scope.register = function () {
+                    apiService.userUpdate($scope.user)
+                        .then(function () {
+                            $location.path("/users");
+                        })
+                }
+
         })
 
 })();
