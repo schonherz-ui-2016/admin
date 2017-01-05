@@ -1,0 +1,73 @@
+<div class="row-fluid">
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td><h4>Name:</h4></td>
+                <td><a href="#" editable-text="category.name" onaftersave="categoryUpdate()"><h4>{{category.name}}</h4></a></td>
+            </tr>
+            <tr>
+                <td>Id:</td>
+                <td>{{category.id}}</td>
+            </tr>
+            <tr>
+                <td>Created:</td>
+                <td>{{category.createdAt}}</td>
+            </tr>
+            <tr>
+                <td>Updated:</td>
+                <td>{{category.updatedAt}}</td>
+            </tr>
+            <tr>
+                <td>Parent:</td>
+                <td><a href="#" editable-select="category.parent.id" e-ng-options="category.id as category.name for category in categories" onaftersave="categoryUpdate()"> {{category.parent.name}}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row-fluid">
+    <!--trigger the modal with buttons-->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategory"><i class="icon-white glyphicon-plus"></i>Add new category</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#removeCategory"><i class="glyphicon glyphicon-remove"></i>Delete this category</button>
+    <button type="button" class="btn btn-info" ng-click="back()">Cancel</button>
+    <!--modal-->
+    <div class="modal fade" id="addCategory" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h4 class="modal-title">New category of parent:{{category.name}}</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="newCategoryName">New category name:</label>
+                            <input type="text" id="newCategoryName" placeholder="New category name" ng-model="newCategory.name">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-dismiss="modal" ng-click="addNewCategory(newCategory)"><i class="icon-white glyphicon-plus"></i>Add new category </button>
+                    <button class=" btn btn-info" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="removeCategory" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">x</button>
+                    <h4 class="modal-title">This category: {{category.name}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Are youu sure want to DELETE this category?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal"  ng-click="removeCategory()"><i class="glyphicon glyphicon-remove"></i>Delete this category</button>
+                    <button class=" btn btn-info" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
