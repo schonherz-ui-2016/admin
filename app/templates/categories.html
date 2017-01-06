@@ -3,7 +3,8 @@
     <div sortable-list-directive data="categories" link="'categories'"></div>
 </div>
 
-<div class="row-fluid" ng-if="categories">
-    <div categories-tree-directive data="categories" link="categories"></div>
+<div class="row-fluid" ng-if="allCategories">
+    <h1>Categories in tree:</h1>
+    <categories-collection-directive data="allCategories"></categories-collection-directive>
 </div>
 
