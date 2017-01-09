@@ -3,13 +3,13 @@
  */
 (function () {
     angular.module('app')
-        .directive('categoriesCollectionDirective', function () {
+        .directive('categoryTree', function () {
             return {
                 restrict:'E',
                 scope: {
                     data:'='
                 },
-                templateUrl:'script/directives/categories.tree/list.html'
+                templateUrl:'script/directives/categories.tree/category.tree.html'
             };
         })
 })();

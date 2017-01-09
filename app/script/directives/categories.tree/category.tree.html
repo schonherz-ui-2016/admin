@@ -1,0 +1,6 @@
+<ul>
+    <li ng-repeat="category in data">
+        <div>{{category.name}}</div>
+        <category-tree data="category.children"></category-tree>
+    </li>
+</ul>
