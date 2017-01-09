@@ -5,6 +5,7 @@
                 .then(function (res) {
                     console.log(res);
                     $scope.categories = [];
+                    $scope.categories2= [];
                     $scope.categoryIds=[];
                     $scope.allCategories = [
                         {   id:1,
@@ -43,60 +44,33 @@
                             obj.id=x.id
                         }
                         $scope.categories.push(obj);
-                        $scope.categoryIds.push(x.id);
-                    });
-                    console.log("$scope.categories:")
-                    console.log($scope.categories);
-                    console.log("$scope.categoryIds:")
-                    console.log($scope.categoryIds);
-                    $scope.allCategories2=[];
 
-                    angular.forEach($scope.categories,function (x) {
-                        var obj={};
-                        if(!x.parent){
-                            obj.name=x.name;
-                            obj.id=x.id;
-                            obj.children=[];
-                            $scope.allCategories2.push(obj);
+                    });
+                    angular.forEach(res.data, function (x) {
+                        var obj = {id: x.id, name: x.name, parent: x.parent, createdAt: x.createdAt, updatedAt: x.updatedAt};
+                        if(obj.parent != null){
+                            obj.parent = x.parent.id;
+                            obj.id=x.id
                         }
-                    });
-
-                    angular.forEach($scope.categories,function (x) {
-                        pasteInTree($scope.allCategories2,x);
+                        $scope.categories2.push(obj);
 
                     });
-                    // function foundInChildren(object, allId) {
-                    //     thereIs=false;
-                    //     angular.forEach(object, function (x) {
-                    //         if(x.id in allId){
-                    //             console.log("benne van");
-                    //             thereIs=true;
-                    //         }
-                    //     });
-                    //     return thereIs;
-                    // }
+                    console.log("$scope.categories2:")
+                    console.log($scope.categories2);
 
-                    function pasteInTree(tree,object) {
-                        angular.forEach(tree, function (x) {
-                            // if(x.children){
-                            //     console.log("belemegy");
-                            //
-                            // if(!foundInChildren(x.children,$scope.categoryIds)){}
-                            // }
-                            if (x.name == object.parent) {
-                                x.children.push({
-                                    "name": object.name,
-                                    "id": object.id,
-                                    "children": []
-                                });
-                                   angular.forEach($scope.categories,function (z) {
-                                        pasteInTree(x.children,z);
-                                    })
-                            }
-                        })
+                    var recurse = function (parent) {
+                        var r = $scope.categories2.filter(function (el) {
+                            return el.parent==parent
+                        });
+                        r.forEach((function (el) {
+                            el.children=recurse(el.id);
+                        }));
+                        return r;
                     };
-                    console.log("$scope.allCategories2:");
-                    console.log($scope.allCategories2);
+                    $scope.data=recurse();
+                    console.log("$scope.data:");
+                    console.log($scope.data);
+
                 });
         });
 })();

@@ -1,3 +1,6 @@
 <ul>
-    <div category-directive ng-repeat="member in data" member="member"></div>
+    <li ng-repeat="category in data">
+        <div>{{category.name}}</div>
+        <categories-collection-directive data="category.children"></categories-collection-directive>
+    </li>
 </ul>
