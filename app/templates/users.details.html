@@ -1,11 +1,73 @@
  <div>
-     <h2>E-mail: {{users.email}}</h2>
-     <span>ID: {{users.id}}</span>
+     <h2>E-mail: {{user.email}}</h2>
+     <span>ID: {{user.id}}</span>
      <br/>
-     <span>Created: {{users.createdAt}}</span>
+     <span>Created: {{user.createdAt}}</span>
      <br/>
-     <span>Updated: {{users.updatedAt}}</span>
+     <span>Updated: {{user.updatedAt}}</span>
      <br/>
       <button type="button" ng-click="updateUser()">User edit</button>
       <br/>
  </div>
+
+ <h3>User:</h3>
+
+ <div class="row-fluid">
+     <table class="table table-bordered">
+
+         <tbody >
+         <tr>
+             <td><h4>Name:</h4></td>
+             <td><h4><a href="#" editable-text="user.name" onaftersave="userUpdate()"> {{user.name||'empty'}}</a></h4></td>
+         </tr>
+         <tr>
+             <td>Email:</td>
+             <td><h4><a href="#" editable-text="user.email" onaftersave="userUpdate()"> {{user.email||'empty'}}</a></h4></td>
+         </tr>
+         <tr>
+             <td>Address</td>
+             <td><h4><a href="#" editable-text="user.address" onaftersave="userUpdate()"> {{user.address||'empty'}}</a></h4></td>
+         </tr>
+         <tr>
+             <td>Phone</td>
+             <td><h4><a href="#" editable-text="user.phone" onaftersave="userUpdate()"> {{user.phone||'empty'}}</a></h4></td>
+         </tr>
+         <tr>
+             <td>Rights</td>
+             <td><h4><a href="#" editable-text="user.rights" onaftersave="userUpdate()"> {{user.rights||'empty'}}</a></h4></td>
+         </tr>
+         <tr>
+             <td>Password</td>
+             <td><h4><a href="#" editable-text="user.password" onaftersave="userUpdate()"> {{user.password||'empty'}}</a></h4></td>
+         </tr>
+         <tr>
+             <td>Balance:</td>
+             <td><a href="#" editable-number="user.balance" onaftersave="uaserUpdate()"> <i class="icon-white glyphicon-euro">{{user.balance||'empty'}}</i></a></td>
+         </tr>
+         </tbody>
+     </table>
+ </div>
+ <div class="row-fluid">
+     <!-- Trigger the modal with a button -->
+     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="glyphicon glyphicon-remove"></i>Delete this user</button>
+     <button type="button" class="btn btn-primary" ng-click="backUsers()"><i class="glyphicon glyphicon-backward"></i>  Back</button>
+     <!-- Modal -->
+     <div class="modal fade" id="myModal" role="dialog">
+         <div class="modal-dialog modal-sm">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">&times;</button>
+                     <h4 class="modal-title">User name: {{user.name}}</h4>
+                 </div>
+                 <div class="modal-body">
+                     <p>Are you sure you want to DELETE this user?</p>
+                 </div>
+                 <div class="modal-footer">
+                     <button class="btn btn-danger" ng-click="removeUser()" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i>DELETE</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+

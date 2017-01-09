@@ -35,6 +35,9 @@
         this.userUpdate = function (user) {
            return $http.put(domain+'/user/'+user.id, user);
         }
+        this.deleteUser = function (id) {
+            return $http.delete (domain+'/user/'+user.id);
+        }
         this.addProduct = function (product) {
             return $http.post(domain+'/product', {
                 "name": product.name,
