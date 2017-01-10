@@ -47,7 +47,12 @@ header{
 .sortorder.reverse:after {
   content: '\25bc';
 }
-
+.sign:after {
+  content: '+';
+}
+.sign.reverse:after {
+  content: '-';
+}
 .sort:hover {
   color: #cc0000;
   cursor: pointer;
