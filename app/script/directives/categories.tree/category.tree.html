@@ -1,6 +1,6 @@
 <ul>
-    <li ng-repeat="category in data">
-        <div>{{category.name}}</div>
-        <category-tree data="category.children"></category-tree>
+    <li ng-repeat="category in data" >
+        <div><button type="button" ng-click="open = !open">+</button> {{category.name}}</div>
+        <div ng-show="open"><category-tree data="category.children"></category-tree></div>
     </li>
 </ul>
