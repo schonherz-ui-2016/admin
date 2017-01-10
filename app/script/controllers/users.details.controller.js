@@ -6,9 +6,7 @@
                 .then(function (res) {
                     $scope.user = res.data;
                 });
-            /*$scope.updateUser = function () {
-                $location.path("/userUpdate/"+$routeParams.id);
-            }*/
+
             $scope.userUpdate = function () {
                 apiService.userUpdate($scope.user)
             }
@@ -20,5 +18,12 @@
             $scope.backUsers=function () {
                 $location.path('/users');
             };
+
+            $scope.removeUser=function () {
+                apiService.deleteUser($scope.user.id)
+                    .then(function () {
+                        $location.path( "/users" );
+                    })
+            }
         })
 })();
