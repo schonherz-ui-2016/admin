@@ -9,19 +9,7 @@
                 scope: {
                     data:'='
                 },
-                templateUrl:'script/directives/categories.tree/category.tree.html',
-                controller: function ($scope) {
-                    $scope.openfv = function (id) {
-                        console.log(id);
-                        angular.forEach($scope.data, function (x) {
-                            if(x.id == id){
-                                if(x.children.length == 0){
-                                    $('.sign').remove();
-                                }
-                            }
-                        })
-                    }
-                }
+                templateUrl:'script/directives/categories.tree/category.tree.html'
             };
         })
 })();

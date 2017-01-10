@@ -1,6 +1,11 @@
 <ul>
     <li ng-repeat="category in data" >
-        <div><button class="sign" ng-click="openfv(category.id); open = !open; reverse = !reverse" ng-class="{reverse: reverse}"></button> {{category.name}}</div>
-        <div ng-show="open"><category-tree data="category.children"></category-tree></div>
+        <div>
+            <span ng-if="category.children.length != 0">
+                <button class="sign" ng-click="open = !open; reverse = !reverse" ng-class="{reverse: reverse}"></button> {{category.name}}
+                <div ng-show="open"><category-tree data="category.children"></category-tree></div>
+            </span>
+            <span ng-if="category.children.length == 0">{{category.name}}</span>
+        </div>
     </li>
 </ul>
