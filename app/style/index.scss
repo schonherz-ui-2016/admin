@@ -48,10 +48,10 @@ header{
   content: '\25bc';
 }
 .sign:after {
-  content: '+';
+  content: '\25ba';
 }
 .sign.reverse:after {
-  content: '-';
+  content: '\25bc';
 }
 .sort:hover {
   color: #cc0000;
