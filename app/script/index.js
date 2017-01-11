@@ -17,10 +17,10 @@
                     templateUrl: 'templates/register.html',
                     controller: 'registerController'
                 })
-                .when('/userUpdate/:id',{
+                /*.when('/userUpdate/:id',{
                     templateUrl: 'templates/register.html',
                     controller: 'userUpdateController'
-            })
+            })********/
                 .when('/products', {
                     templateUrl: 'templates/product.list.html',
                     controller: 'productListController'
@@ -34,7 +34,7 @@
                     controller: 'usersController'
                 })
                 .when('/users/:id', {
-                    templateUrl: 'templates/users.details.html',
+                    templateUrl: 'templates/user.details.html',
                     controller: 'usersDetailsController'
                 })
                 .when('/new_product', {
