@@ -11,6 +11,7 @@
                        $scope.category=res.data;
                     });
             };
+
             apiService.getCategories()
                 .then(function (res) {
                     $scope.categories = res.data;
@@ -23,56 +24,30 @@
                 apiService.addCategory(newCategory);
             };
             $scope.removeCategory=function () {
-               $scope.deleteCategories();
-
-                apiService.removeCategory($scope.category.id)
-                    .then(function () {
-                        $location.path('/categories');
-                    })
-            };
-            $scope.deleteCategories=function () {
+                var children = [];
+                children.push($scope.category.id);
                 var recurse = function (parent) {
-                    var r =  $scope.categories.filter(function (el) {
-                        return (el.parent||{}).id==parent
+                    var r = $scope.categories.filter(function (el) {
+                        return (el.parent || {}).id == parent
                     });
-                    r.forEach((function (el) {
-                        el.children=recurse(el.id);
-                    }));
-                    return r;
+                    r.forEach(function (el) {
+                        children.push(el.id);
+                        recurse(el.id);
+                    })
                 };
-                $scope.data=recurse();
-
-                let findObject=function (objTree, searchID) {
-                    for (var nodeIdx= 0; nodeIdx<=objTree.length-1; nodeIdx++){
-                        var currentNode = objTree[nodeIdx],
-                            currentId = currentNode.id,
-                            currentChildren = currentNode.children;
-                        console.log("Comparing treeNodes element with ID==" +
-                            currentId + " to SearchID==" + searchID);
-                        if (currentId == searchID) {
-                            console.log("Match!");
-                            return currentNode;
-                        } else {
-                            console.log("No Match! Trying " + currentChildren.length +
-                                " Children of Node ID#" + currentId);
-                            var foundDescendant = findObject(currentChildren, searchID);
-                            if (foundDescendant) {
-                                return foundDescendant;
-                            }
-                        }
+                recurse($scope.category.id);
+                for (var i = 0; i < children.length; i++) {
+                    console.log("children[i]");
+                    console.log(children[i]);
+                    if (i == children.length - 1) {
+                        apiService.removeCategory(children[i])
+                            .then(function () {
+                                $location.path('/categories');
+                            });
+                    } else {
+                        apiService.removeCategory(children[i]);
                     }
-                    console.log("Done trying " + objTree.length + " children. Returning False");
-                    return false;
-
-                };
-                $scope.findObject= findObject($scope.data,$scope.category.id);
-
-                console.log("$scope.category:");
-                console.log($scope.category);
-                console.log("$scope.findObject:");
-                console.log($scope.findObject);
-                console.log("$scope.data:");
-                console.log($scope.data);
-            }
+                }
+            };
         })
 })();
