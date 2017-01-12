@@ -5,7 +5,8 @@
                 restrict: 'A',
                 scope: {
                     data: '=',
-                    link: '='
+                    link: '=',
+                    search: '='
                 },
                 controller: function ($scope) {
                     $scope.attributes = Object.keys($scope.data[0]);

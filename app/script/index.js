@@ -45,6 +45,10 @@
                     templateUrl: 'templates/categories.html',
                     controller: 'categoriesController'
                 })
+                .when('/categoryTree', {
+                    templateUrl: 'templates/categories.tree.html',
+                    controller: 'categoriesController'
+                })
                 .when('/categories/:id', {
                     templateUrl: 'templates/categories.details.html',
                     controller: 'categoriesDetailsController'
