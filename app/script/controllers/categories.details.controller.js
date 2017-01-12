@@ -37,8 +37,6 @@
                 };
                 recurse($scope.category.id);
                 for (var i = 0; i < children.length; i++) {
-                    console.log("children[i]");
-                    console.log(children[i]);
                     if (i == children.length - 1) {
                         apiService.removeCategory(children[i])
                             .then(function () {
