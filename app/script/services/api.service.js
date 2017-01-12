@@ -31,7 +31,13 @@
         };
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
-        };
+        }
+        this.userUpdate = function (user) {
+           return $http.put(domain+'/user/'+user.id, user);
+        }
+        this.deleteUser = function (id) {
+            return $http.delete (domain+'/user/'+id);
+        }
         this.addProduct = function (product) {
             return $http.post(domain+'/product', {
                 "name": product.name,
@@ -74,6 +80,7 @@
                 "description": product.description
             });
         };
+
         this.myProfileUpdate=function (user) {
             return $http.put(domain+'/user/'+user.id,{
                 "email": user.email,
@@ -97,5 +104,6 @@
             return $http.delete(domain+'/category/'+id);
         };
     };
+
     angular.module('app').service('apiService', apiService);
 })();

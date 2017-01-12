@@ -30,7 +30,7 @@
                     controller: 'usersController'
                 })
                 .when('/users/:id', {
-                    templateUrl: 'templates/users.details.html',
+                    templateUrl: 'templates/user.details.html',
                     controller: 'usersDetailsController'
                 })
                 .when('/new_product', {
