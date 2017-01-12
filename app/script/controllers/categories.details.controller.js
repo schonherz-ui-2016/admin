@@ -11,6 +11,7 @@
                        $scope.category=res.data;
                     });
             };
+
             apiService.getCategories()
                 .then(function (res) {
                     $scope.categories = res.data;
@@ -23,10 +24,28 @@
                 apiService.addCategory(newCategory);
             };
             $scope.removeCategory=function () {
-                apiService.removeCategory($scope.category.id)
-                    .then(function () {
-                        $location.path('/categories');
+                var children = [];
+                children.push($scope.category.id);
+                var recurse = function (parent) {
+                    var r = $scope.categories.filter(function (el) {
+                        return (el.parent || {}).id == parent
+                    });
+                    r.forEach(function (el) {
+                        children.push(el.id);
+                        recurse(el.id);
                     })
-            }
+                };
+                recurse($scope.category.id);
+                for (var i = 0; i < children.length; i++) {
+                    if (i == children.length - 1) {
+                        apiService.removeCategory(children[i])
+                            .then(function () {
+                                $location.path('/categories');
+                            });
+                    } else {
+                        apiService.removeCategory(children[i]);
+                    }
+                }
+            };
         })
 })();

@@ -12,7 +12,6 @@
                         }
                         $scope.categories.push(obj);
                     });
-
                     var recurse = function (parent) {
                         var r = res.data.filter(function (el) {
                             return (el.parent||{}).id==parent
@@ -23,6 +22,7 @@
                         return r;
                     };
                     $scope.data=recurse();
+
                 });
         });
 })();
