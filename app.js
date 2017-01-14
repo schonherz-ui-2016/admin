@@ -11,6 +11,6 @@ app.use(express.static(__dirname + '/app'));
 app.get('/', function(req, res) {
     res.sendfile(__dirname + '/app/index.html');
 });
-app.listen(3000, function () {
-    console.log('example app listening on port 3000')
+app.listen(3000, '81.2.254.9', function () {
+    console.log("Server has started on 3000 port!!");
 });
