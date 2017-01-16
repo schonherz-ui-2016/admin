@@ -60,10 +60,10 @@
      </div>
  </div>
 
- <div>
-     <span>Created: {{user.createdAt}}</span>
+ <div ng-model="dateFilter">
+     <span>Created: {{user.createdAt | date :'yyyy-MM-dd EEEE HH:mm:ss'}}</span>
      <br/>
-     <span>Updated: {{user.updatedAt}}</span>
+     <span>Updated: {{user.updatedAt | date :'yyyy-MM-dd EEEE HH:mm:ss'}}</span>
      <br/>
 
  </div>
