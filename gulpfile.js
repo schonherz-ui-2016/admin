@@ -3,30 +3,44 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var webserver = require('gulp-webserver');
-var $ = require('gulp-load-plugins')();
+var concat =  require('gulp-concat');
+// var $ = require('gulp-load-plugins')();
+var src = require('gulp-add-src');
 var mainBowerFiles = require('main-bower-files');
 
-gulp.task('uglify', function () {
-    gulp.src('./app/script/**/*.js')
-        .pipe($.plumber())
-        .pipe($.sourcemaps.init())
-        .pipe($.babel({
-            presets: ['latest']
-        }))
-        .pipe($.addSrc.prepend(mainBowerFiles()))
-        .pipe($.concat('build.js'))
-        .pipe($.uglify())
-        .pipe($.sourcemaps.write('./'))
-        .pipe(gulp.dest('./build'));
+var uglify = require('gulp-uglify');
+var pump = require('pump');
+
+console.log(mainBowerFiles({filter: /js$/}));
+
+gulp.task('compress', function (cb) {
+    pump([
+            gulp.src(mainBowerFiles({filter: /js$/})),
+            gulp.src('./app/script/**/*.js'),
+            concat('./build.js'),
+            gulp.dest('./app/script')
+        ],
+        cb
+    );
 });
 
-gulp.task('jshint', function() {
-    gulp.src(['./gulpfile.js', './app/script/**/*.js'])
-        .pipe($.jshint({
-            esversion: 6
-        }))
-        .pipe($.jshint.reporter('default'));
-});
+// gulp.task('uglify', function () {
+//     gulp.src('./app/script/**/*.js')
+//         .pipe($.sourcemaps.init())
+//         .pipe($.addSrc.prepend(mainBowerFiles()))
+//         .pipe($.concat('./build.js'))
+//         .pipe($.uglify())
+//         .pipe($.sourcemaps.write('./'))
+//         .pipe(gulp.dest('./build'));
+// });
+//
+// gulp.task('jshint', function() {
+//     gulp.src(['./gulpfile.js', './app/script/**/*.js'])
+//         .pipe($.jshint({
+//             esversion: 5
+//         }))
+//         .pipe($.jshint.reporter('default'));
+// });
 
 gulp.task('sass', function () {
     return gulp.src('./app/style/**/*.scss')
@@ -49,4 +63,4 @@ gulp.task('webserver', function() {
         }));
 });
 
-gulp.task('default', ['uglify', 'sass:watch', 'webserver']);
+gulp.task('default', ['compress', 'sass:watch', 'webserver']);
