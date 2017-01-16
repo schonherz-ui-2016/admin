@@ -24,24 +24,6 @@ gulp.task('compress', function (cb) {
     );
 });
 
-// gulp.task('uglify', function () {
-//     gulp.src('./app/script/**/*.js')
-//         .pipe($.sourcemaps.init())
-//         .pipe($.addSrc.prepend(mainBowerFiles()))
-//         .pipe($.concat('./build.js'))
-//         .pipe($.uglify())
-//         .pipe($.sourcemaps.write('./'))
-//         .pipe(gulp.dest('./build'));
-// });
-//
-// gulp.task('jshint', function() {
-//     gulp.src(['./gulpfile.js', './app/script/**/*.js'])
-//         .pipe($.jshint({
-//             esversion: 5
-//         }))
-//         .pipe($.jshint.reporter('default'));
-// });
-
 gulp.task('sass', function () {
     return gulp.src('./app/style/**/*.scss')
         .pipe(sass().on('error', sass.logError))

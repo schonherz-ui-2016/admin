@@ -30,18 +30,30 @@
                     })
             };
 
+            $scope.roles = [
+                {
+                    name: "admin"
+                },
+                {
+                    name: "user"
+                },
+                {
+                    name: "warehouse owner"
+                }
+            ];
             apiService.getRoles()
                 .then(function (res) {
-                    $scope.roles = res.data;
-                    console.log($scope.roles);
+                    $scope.rolesFromBackend = res.data;
+                    console.log($scope.rolesFromBackend);
                 });
 
             $scope.userUpdateForRole = function () {
                 console.log($scope.user);
-                angular.forEach($scope.roles, function (x) {
+                angular.forEach($scope.rolesFromBackend, function (x) {
                     if($scope.user.roles == x.role){
                         console.log($scope.user.roles);
                         $scope.user.roles = [];
+                        console.log(x);
                         delete x.id;
                         $scope.user.roles.push(x);
                     }

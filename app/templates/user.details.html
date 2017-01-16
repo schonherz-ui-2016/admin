@@ -28,7 +28,14 @@
          </tr>
          <tr>
              <td>Roles</td>
-             <td><a href="#" editable-select="user.roles" onaftersave="userUpdateForRole()" e-ng-options="role.role as role.role for role in roles track by role.id"> {{user.roles||'empty'}}</a></td>
+             <td>
+                 <a href="#" editable-select="user.roles" onaftersave="userUpdateForRole()" e-ng-options="role.name as role.name for role in roles">
+                     <span ng-if="user.roles.length != 0" ng-repeat="role in user.roles">{{role.role}}</span> 
+					 <span class="empty" ng-if="user.roles.length != 0" ng-click="open = !open">Add new role</span>
+					 <br/>
+                     <span ng-if="user.roles.length == 0 || open">empty</span>
+                 </a>
+             </td>
          </tr>
          <tr>
              <td>Password</td>
