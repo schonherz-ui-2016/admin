@@ -31,13 +31,13 @@
         };
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
-        }
+        };
         this.userUpdate = function (user) {
            return $http.put(domain+'/user/'+user.id, user);
-        }
+        };
         this.deleteUser = function (id) {
             return $http.delete (domain+'/user/'+id);
-        }
+        };
         this.addProduct = function (product) {
             return $http.post(domain+'/product', {
                 "name": product.name,
@@ -103,6 +103,9 @@
         this.removeCategory=function (id) {
             return $http.delete(domain+'/category/'+id);
         };
+        this.getRoles = function () {
+            return $http.get(domain + '/role');
+        }
     };
 
     angular.module('app').service('apiService', apiService);
