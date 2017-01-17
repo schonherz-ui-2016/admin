@@ -103,6 +103,12 @@
         this.removeCategory=function (id) {
             return $http.delete(domain+'/category/'+id);
         };
+		this.getWarehouses = function(){
+			return $http.get(domain + '/warehouse');
+		}
+		this.getWarehouse = function (id) {
+            return $http.get(domain+'/warehouse/'+id);
+        };
     };
 
     angular.module('app').service('apiService', apiService);

@@ -53,6 +53,14 @@
                     templateUrl: 'templates/categories.details.html',
                     controller: 'categoriesDetailsController'
                 })
+				.when('/warehouses', {
+                    templateUrl: 'templates/warehouses.html',
+                    controller: 'warehousesController'
+                })
+				.when('/warehouses/:id', {
+                    templateUrl: 'templates/warehouses.details.html',
+                    controller: 'warehousesDetailsController'
+                })
                 .otherwise({
                     redirectTo: '/'
                 })
