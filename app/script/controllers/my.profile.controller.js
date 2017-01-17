@@ -7,7 +7,7 @@
                 apiService.getUserId()
                     .then(function (response) {
                         $scope.myProfile=response.data;
-                        $scope.right=response.data.rights;
+						console.log(response.data);
                     });
                 $scope.myProfileUpdate=function () {
 
@@ -23,9 +23,50 @@
                     return "Your phone number should look like: 'xx-xxx-xxxx'";
                 }
             };
-            $scope.rights=[ {id:1,name:"ADMIN"},
-                            {id:2, name:"CUSTOMER"},
-                            {id:3, name: "WAREHOUSE_OWNER"}];
+            $scope.roles = [
+                {
+                    name: "admin",
+					id: 1
+                },
+                {
+                    name: "user",
+					id: 2
+                },
+                {
+                    name: "warehouse owner",
+					id: 3
+                }
+            ];
+			
+			apiService.getRoles()
+                .then(function (res) {
+                    $scope.rolesFromBackend = res.data;
+                });
+
+			$scope.userUpdateForRole = function () {
+				var keepGoing = true;
+                angular.forEach($scope.rolesFromBackend, function (x) {
+					if(keepGoing){
+						if($scope.user2.roles.name == x.role){
+							if($scope.myProfile.roles.length != 0){
+								angular.forEach($scope.myProfile.roles, function(y){
+								if(y.role != x.role){
+									delete x.id;
+									$scope.myProfile.roles.push(x);
+									keepGoing = false;
+								}
+								})
+							} 
+							else{
+								delete x.id;
+								$scope.myProfile.roles.push(x);
+								keepGoing = false;
+							}
+						}
+					}
+                });
+                $scope.myProfileUpdate();
+            }
 
             $scope.removeMyProfile=function () {
                     apiService.removeUser($scope.myProfile.id)
