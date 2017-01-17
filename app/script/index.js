@@ -58,7 +58,7 @@
                     controller: 'warehousesController'
                 })
 				.when('/warehouses/:id', {
-                    templateUrl: 'templates/warehouses.details.html',
+                    templateUrl: 'templates/warehouse.details.html',
                     controller: 'warehousesDetailsController'
                 })
                 .otherwise({
