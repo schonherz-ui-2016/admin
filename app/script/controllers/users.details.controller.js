@@ -4,7 +4,6 @@
         .controller('usersDetailsController', function (apiService, $scope, $routeParams, $location) {
             apiService.getUser($routeParams.id)
                 .then(function (res) {
-                    console.log(res.data);
                     $scope.user = res.data;
                 });
 
@@ -32,31 +31,44 @@
 
             $scope.roles = [
                 {
-                    name: "admin"
+                    name: "admin",
+					id: 1
                 },
                 {
-                    name: "user"
+                    name: "user",
+					id: 2
                 },
                 {
-                    name: "warehouse owner"
+                    name: "warehouse owner",
+					id: 3
                 }
             ];
             apiService.getRoles()
                 .then(function (res) {
                     $scope.rolesFromBackend = res.data;
-                    console.log($scope.rolesFromBackend);
                 });
 
             $scope.userUpdateForRole = function () {
-                console.log($scope.user);
+				var keepGoing = true;
                 angular.forEach($scope.rolesFromBackend, function (x) {
-                    if($scope.user.roles == x.role){
-                        console.log($scope.user.roles);
-                        $scope.user.roles = [];
-                        console.log(x);
-                        delete x.id;
-                        $scope.user.roles.push(x);
-                    }
+					if(keepGoing){
+						if($scope.user2.roles.name == x.role){
+							if($scope.user.roles.length != 0){
+								angular.forEach($scope.user.roles, function(y){
+								if(y.role != x.role){
+									delete x.id;
+									$scope.user.roles.push(x);
+									keepGoing = false;
+								}
+								})
+							} 
+							else{
+								delete x.id;
+								$scope.user.roles.push(x);
+								keepGoing = false;
+							}
+						}
+					}
                 });
                 $scope.userUpdate();
             }
