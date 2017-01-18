@@ -1,6 +1,10 @@
 (function () {
-    var domain='http://81.2.254.9:1337';
-    var apiService = function ($http) {
+    var apiService = function ($http, $window) {
+        var domain='http://localhost:1337';
+        if ($window.domain) {
+            domain = $window.domain;
+        }
+
         this.login = function (email, password) {
             return $http.post(domain+'/user/login', {
                 "email": email,
@@ -16,8 +20,7 @@
                 "name":user.name,
                 "address":user.address,
                 "phone":user.phone,
-                "balance":user.balance,
-                "rights":user.rights
+                "balance":user.balance
             });
         };
         this.getProducts = function () {
@@ -31,13 +34,13 @@
         };
         this.getProduct = function (id) {
             return $http.get(domain+'/product/'+id);
-        }
+        };
         this.userUpdate = function (user) {
            return $http.put(domain+'/user/'+user.id, user);
-        }
+        };
         this.deleteUser = function (id) {
             return $http.delete (domain+'/user/'+id);
-        }
+        };
         this.addProduct = function (product) {
             return $http.post(domain+'/product', {
                 "name": product.name,
@@ -103,6 +106,9 @@
         this.removeCategory=function (id) {
             return $http.delete(domain+'/category/'+id);
         };
+        this.getRoles = function () {
+            return $http.get(domain + '/role');
+        }
     };
 
     angular.module('app').service('apiService', apiService);

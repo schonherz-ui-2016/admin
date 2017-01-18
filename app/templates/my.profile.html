@@ -37,8 +37,15 @@
             <td> {{myProfile.balance ||'empty'}}</td>
         </tr>
         <tr>
-            <td>Rights:</td>
-            <td><a href="#" editable-select="myProfile.rights" e-ng-options="right.id as right.name+' id:'+right.id for right in rights"  onaftersave="myProfileUpdate()"> {{myProfile.rights ||'empty'}}</a></td>
+            <td>Roles:</td>
+            <td>
+				<a href="#" editable-select="user2.roles" onaftersave="userUpdateForRole()" e-ng-options="role as role.name for role in roles">
+                     <span ng-if="myProfile.roles.length != 0" ng-repeat="role in myProfile.roles">{{role.role}}<br/></span>
+					 <span class="empty" ng-if="user.roles.length != 0" ng-click="open = !open">Add new role</span>
+					 <br/>
+                     <span ng-if="myProfile.roles.length == 0 || open">empty</span>
+                </a>
+			</td>
         </tr>
         </tbody>
     </table>

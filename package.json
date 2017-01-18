@@ -17,9 +17,21 @@
   },
   "homepage": "https://github.com/schonherz-ui-2016/admin#readme",
   "devDependencies": {
+    "babel": "^6.5.2",
+    "babel-preset-latest": "^6.16.0",
     "gulp": "^3.9.1",
+    "gulp-add-src": "^0.2.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-jshint": "^2.0.4",
+    "gulp-load-plugins": "^1.4.0",
+    "gulp-plumber": "^1.1.0",
     "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^2.4.0",
     "gulp-uglify": "^2.0.0",
+    "jshint": "^2.9.4",
+    "main-bower-files": "^2.13.1",
+    "pump": "^1.0.2"
     "gulp-webserver": "^0.9.1"
   },
   "dependencies": {

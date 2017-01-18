@@ -67,3 +67,17 @@ category-tree{
     list-style-type: none;
   }
 }
+
+.empty {
+  float: right;
+  border: solid;
+  border-color: #0650A6;
+  border-radius: .3em;
+  color: #FFF;
+  background-color: #0650A6;
+}
+
+.empty:hover {
+	color: #4588D4;
+	border-color: #4588D4;
+}

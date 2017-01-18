@@ -6,7 +6,8 @@
                 apiService.register($scope.user)
                     .then(function () {
                         $location.path( "/login" );
-                    })
+                    });
+
             }
         })
 

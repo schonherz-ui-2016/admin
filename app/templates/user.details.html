@@ -1,36 +1,48 @@
-
- <h3><span>ID: {{user.id}}</span> <h3>E-mail: {{user.email}}</h3></h3>
-
- <div class="row-fluid">
+<div class="row-fluid">
      <table class="table table-bordered">
 
          <tbody >
          <tr>
-             <td><h4>Name:</h4></td>
+             <td><h4>Name</h4></td>
              <td><h4><a href="#" editable-text="user.name" onaftersave="userUpdate()"> {{user.name||'empty'}}</a></h4></td>
          </tr>
          <tr>
-             <td>Email:</td>
-             <td><h4><a href="#" editable-text="user.email" onaftersave="userUpdate()"> {{user.email||'empty'}}</a></h4></td>
+             <td>Email</td>
+             <td><a href="#" editable-text="user.email" onaftersave="userUpdate()"> {{user.email||'empty'}}</a></td>
+         </tr>
+         <tr>
+             <td>Created</td>
+             <td> {{user.createdAt||'empty'}}</td>
+         </tr>
+         <tr>
+             <td>Updated</td>
+             <td> {{user.updatedAt||'empty'}}</td>
          </tr>
          <tr>
              <td>Address</td>
-             <td><h4><a href="#" editable-text="user.address" onaftersave="userUpdate()"> {{user.address||'empty'}}</a></h4></td>
+             <td><a href="#" editable-text="user.address" onaftersave="userUpdate()"> {{user.address||'empty'}}</a></td>
          </tr>
          <tr>
              <td>Phone</td>
-             <td><h4><a href="#" editable-text="user.phone" onaftersave="userUpdate()"> {{user.phone||'empty'}}</a></h4></td>
+             <td><a href="#" editable-text="user.phone" onaftersave="userUpdate()"> {{user.phone||'empty'}}</a></td>
          </tr>
          <tr>
-             <td>Rights</td>
-             <td><h4><a href="#" editable-text="user.rights" onaftersave="userUpdate()"> {{user.rights||'empty'}}</a></h4></td>
+             <td>Roles</td>
+             <td>
+                 <a href="#" editable-select="user2.roles" onaftersave="userUpdateForRole()" e-ng-options="role as role.name for role in roles">
+                     <span ng-if="user.roles.length != 0" ng-repeat="role in user.roles">{{role.role}}<br/></span>
+					 <span class="empty" ng-if="user.roles.length != 0" ng-click="open = !open">Add new role</span>
+					 <br/>
+                     <span ng-if="user.roles.length == 0 || open">empty</span>
+                 </a>
+             </td>
          </tr>
          <tr>
              <td>Password</td>
-             <td><h4><a href="#" editable-text="user.password" onaftersave="userUpdate()"> {{user.password||'empty'}}</a></h4></td>
+             <td><a href="#" editable-text="user.password" onaftersave="userUpdate()"> {{user.password||'empty'}}</a></td>
          </tr>
          <tr>
-             <td>Balance:</td>
+             <td>Balance</td>
              <td><a href="#" editable-number="user.balance" onaftersave="userUpdate()"> <i class="icon-white glyphicon-euro">{{user.balance||'empty'}}</i></a></td>
          </tr>
          </tbody>
@@ -58,12 +70,4 @@
              </div>
          </div>
      </div>
- </div>
-
- <div>
-     <span>Created: {{user.createdAt}}</span>
-     <br/>
-     <span>Updated: {{user.updatedAt}}</span>
-     <br/>
-
  </div>
