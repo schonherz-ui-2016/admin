@@ -53,11 +53,11 @@
                     templateUrl: 'templates/categories.details.html',
                     controller: 'categoriesDetailsController'
                 })
-				.when('/warehouses', {
+                .when('/warehouses', {
                     templateUrl: 'templates/warehouses.html',
                     controller: 'warehousesController'
                 })
-				.when('/warehouses/:id', {
+                .when('/warehouses/:id', {
                     templateUrl: 'templates/warehouse.details.html',
                     controller: 'warehousesDetailsController'
                 })
