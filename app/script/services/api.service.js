@@ -1,6 +1,9 @@
 (function () {
-    var domain='http://81.2.254.9:1337';
-    var apiService = function ($http) {
+    var apiService = function ($http,$window) {
+        var domain='http://localhost:1337';
+               if ($window.domain) {
+                       domain = $window.domain;
+               }
         this.login = function (email, password) {
             return $http.post(domain+'/user/login', {
                 "email": email,
