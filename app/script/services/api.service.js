@@ -1,5 +1,7 @@
 (function () {
-    var domain='http://81.2.254.9:1337';
+
+    // var domain='http://81.2.254.9:1337';
+    var domain='http://localhost:1337';
     var apiService = function ($http) {
         this.login = function (email, password) {
             return $http.post(domain+'/user/login', {
@@ -16,8 +18,7 @@
                 "name":user.name,
                 "address":user.address,
                 "phone":user.phone,
-                "balance":user.balance,
-                "rights":user.rights
+                "balance":user.balance
             });
         };
         this.getProducts = function () {
