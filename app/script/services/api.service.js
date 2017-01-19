@@ -1,8 +1,8 @@
 (function () {
-    var domain='http://81.2.254.9:1337';
+    var domain = 'http://81.2.254.9:1337';
     var apiService = function ($http) {
         this.login = function (email, password) {
-            return $http.post(domain+'/user/login', {
+            return $http.post(domain + '/user/login', {
                 "email": email,
                 "password": password
             }).then(function (response) {
@@ -10,36 +10,36 @@
             });
         };
         this.register = function (user) {
-            return $http.post(domain+'/user/register', {
+            return $http.post(domain + '/user/register', {
                 "email": user.email,
                 "password": user.password,
-                "name":user.name,
-                "address":user.address,
-                "phone":user.phone,
-                "balance":user.balance,
-                "rights":user.rights
+                "name": user.name,
+                "address": user.address,
+                "phone": user.phone,
+                "balance": user.balance,
+                "rights": user.rights
             });
         };
         this.getProducts = function () {
-            return $http.get(domain+'/product');
+            return $http.get(domain + '/product');
         };
         this.getUsers = function () {
-            return $http.get(domain+'/user');
+            return $http.get(domain + '/user');
         };
         this.getUser = function (id) {
-            return $http.get(domain+'/user/'+id);
+            return $http.get(domain + '/user/' + id);
         };
         this.getProduct = function (id) {
-            return $http.get(domain+'/product/'+id);
-        }
+            return $http.get(domain + '/product/' + id);
+        };
         this.userUpdate = function (user) {
-           return $http.put(domain+'/user/'+user.id, user);
-        }
+            return $http.put(domain + '/user/' + user.id, user);
+        };
         this.deleteUser = function (id) {
-            return $http.delete (domain+'/user/'+id);
-        }
+            return $http.delete(domain + '/user/' + id);
+        };
         this.addProduct = function (product) {
-            return $http.post(domain+'/product', {
+            return $http.post(domain + '/product', {
                 "name": product.name,
                 "createdAt": new Date(),
                 "updatedAt": new Date(),
@@ -49,31 +49,31 @@
             });
         };
         this.getCategories = function () {
-            return $http.get(domain+'/category');
+            return $http.get(domain + '/category');
         };
         this.getCategory = function (id) {
-            return $http.get(domain+'/category/'+id);
+            return $http.get(domain + '/category/' + id);
         };
-        this.categoryUpdate=function (category) {
-            return $http.put(domain+'/category/'+category.id, {
+        this.categoryUpdate = function (category) {
+            return $http.put(domain + '/category/' + category.id, {
                 "name": category.name,
                 "updatedAt": new Date(),
-                "parent":category.parent.id
+                "parent": category.parent.id
             })
         };
-        this.logout= function () {
-            localStorage.setItem('token','');
+        this.logout = function () {
+            localStorage.setItem('token', '');
         };
-        this.getUserId=function () {
-            return $http.get(domain+'/user/me');
+        this.getUserId = function () {
+            return $http.get(domain + '/user/me');
         };
-        this.removeProduct=function (id) {
-            return $http.delete(domain+'/product/'+id);
+        this.removeProduct = function (id) {
+            return $http.delete(domain + '/product/' + id);
         };
-        this.productUpdate=function (product) {
-            return $http.put(domain+'/product/'+product.id,{
-                "name":product.name,
-                "createdAt":product.createdAt,
+        this.productUpdate = function (product) {
+            return $http.put(domain + '/product/' + product.id, {
+                "name": product.name,
+                "createdAt": product.createdAt,
                 "updatedAt": new Date(),
                 "category": product.category,
                 "price": product.price,
@@ -81,27 +81,33 @@
             });
         };
 
-        this.myProfileUpdate=function (user) {
-            return $http.put(domain+'/user/'+user.id,{
+        this.myProfileUpdate = function (user) {
+            return $http.put(domain + '/user/' + user.id, {
                 "email": user.email,
-                "name":user.name,
-                "address":user.address,
-                "phone":user.phone,
+                "name": user.name,
+                "address": user.address,
+                "phone": user.phone,
                 "updatedAt": new Date(),
                 "rights": user.rights
             });
         };
-        this.removeUser=function (id) {
-            return $http.delete(domain+'/user/'+id);
+        this.removeUser = function (id) {
+            return $http.delete(domain + '/user/' + id);
         };
-        this.addCategory=function (category) {
-            return $http.post(domain+'/category',{
-                "name":category.name,
-                "parent":category.parent
+        this.addCategory = function (category) {
+            return $http.post(domain + '/category', {
+                "name": category.name,
+                "parent": category.parent
             })
         };
-        this.removeCategory=function (id) {
-            return $http.delete(domain+'/category/'+id);
+        this.removeCategory = function (id) {
+            return $http.delete(domain + '/category/' + id);
+        };
+        this.getWarehouses = function () {
+            return $http.get(domain + '/warehouse');
+        };
+        this.getWarehouse = function (id) {
+            return $http.get(domain + '/warehouse/' + id);
         };
     };
 
