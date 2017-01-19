@@ -45,13 +45,13 @@
                 });
             $scope.tempUserForRole = [];
             $scope.userUpdateForRole = function () {
-                angular.forEach($scope.rolesFromBackend, function (x) {
-                    delete x.id;
-                    delete x.createdAt;
-                    delete x.updatedAt;
-                });
-                delete $scope.tempUserForRole[0].$$hashKey;
-                $scope.user.roles = _.intersectionWith($scope.rolesFromBackend, $scope.tempUserForRole, _.isEqual);
+                var equalRolesName = function(x, y) {
+                    if(x.role == y.role){
+                        delete x.id;
+                        return true;
+                    }
+                };
+                $scope.user.roles = _.intersectionWith($scope.rolesFromBackend, $scope.tempUserForRole, equalRolesName);
                 $scope.userUpdate();
             }
         })
