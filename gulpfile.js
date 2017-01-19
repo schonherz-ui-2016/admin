@@ -11,8 +11,6 @@ var mainBowerFiles = require('main-bower-files');
 var uglify = require('gulp-uglify');
 var pump = require('pump');
 
-console.log(mainBowerFiles({filter: /js$/}));
-
 gulp.task('compress', function (cb) {
     pump([
             gulp.src(mainBowerFiles({filter: /js$/})),

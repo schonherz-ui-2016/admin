@@ -1,12 +1,12 @@
-
 <div><h2>My profile:</h2></div>
 <div class="row-fluid">
     <table class="table table-bordered">
 
-        <tbody >
+        <tbody>
         <tr>
             <td><h4>Name:</h4></td>
-            <td><a href="#" editable-text="myProfile.name" onaftersave="myProfileUpdate()"> {{myProfile.name||'empty'}}</a></h4></td>
+            <td><h4><a href="#" editable-text="myProfile.name" onaftersave="myProfileUpdate()">
+                {{myProfile.name||'empty'}}</a></h4></td>
         </tr>
         <tr>
             <td>Id:</td>
@@ -14,11 +14,14 @@
         </tr>
         <tr>
             <td>Address:</td>
-            <td><a href="#" editable-text="myProfile.address"  onaftersave="myProfileUpdate()"> {{myProfile.address||'empty'}}</a></td>
+            <td><a href="#" editable-text="myProfile.address" onaftersave="myProfileUpdate()">
+                {{myProfile.address||'empty'}}</a></td>
         </tr>
         <tr>
             <td>Email:</td>
-            <td><a href="#" editable-email="myProfile.email" onaftersave="myProfileUpdate()" id="email" data-type="email" e-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"> {{myProfile.email||'empty'}}</a></td>
+            <td><a href="#" editable-email="myProfile.email" onaftersave="myProfileUpdate()" id="email"
+                   data-type="email" e-pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+                {{myProfile.email||'empty'}}</a></td>
         </tr>
         <tr>
             <td>Created:</td>
@@ -30,7 +33,9 @@
         </tr>
         <tr>
             <td>phone:</td>
-            <td><a href="#" editable-text="myProfile.phone" onbeforesave="checkPhone($data)" onaftersave="myProfileUpdate()" id="tel" data-type="text"  e-title="xx-xxx-xxxx"> {{myProfile.phone|| 'empty'}}</a></td>
+            <td><a href="#" editable-text="myProfile.phone" onbeforesave="checkPhone($data)"
+                   onaftersave="myProfileUpdate()" id="tel" data-type="text" e-title="xx-xxx-xxxx"> {{myProfile.phone||
+                'empty'}}</a></td>
         </tr>
         <tr>
             <td>Balance:</td>
@@ -39,22 +44,24 @@
         <tr>
             <td>Roles:</td>
             <td>
-				<a href="#" editable-select="user2.roles" onaftersave="userUpdateForRole()" e-ng-options="role as role.name for role in roles">
-                     <span ng-if="myProfile.roles.length != 0" ng-repeat="role in myProfile.roles">{{role.role}}<br/></span>
-					 <span class="empty" ng-if="user.roles.length != 0" ng-click="open = !open">Add new role</span>
-					 <br/>
-                     <span ng-if="myProfile.roles.length == 0 || open">empty</span>
-                </a>
-			</td>
+                <span ng-if="myProfile.roles.length != 0"
+                      ng-repeat="role in myProfile.roles">{{role.role}}<br/></span>
+                <span ng-if="myProfile.roles.length == 0">empty</span>
+            </td>
         </tr>
         </tbody>
     </table>
 </div>
 <div class="row-fluid">
     <!--trigger the modal with a button-->
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelete"><i class="glyphicon glyphicon-remove"></i> Delete my Profile </button>
-    <button type="button" class="btn btn-primary" ng-click="back()"><i class="glyphicon glyphicon-backward"></i>  Back</button>
-    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalPassword"><i class="glyphicon glyphicon-refresh"></i>  Change Password</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModalDelete"><i
+            class="glyphicon glyphicon-remove"></i> Delete my Profile
+    </button>
+    <button type="button" class="btn btn-primary" ng-click="back()"><i class="glyphicon glyphicon-backward"></i> Back
+    </button>
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModalPassword"><i
+            class="glyphicon glyphicon-refresh"></i> Change Password
+    </button>
     <!--modal-->
     <div class="modal fade" id="myModalDelete" role="dialog">
         <div class="modal-dialog modal-sm">
@@ -67,7 +74,9 @@
                     <p>Are you sure you want to DELETE your profile?</p>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-danger" ng-click="removeMyProfile()" data-dismiss="modal"> <i class="glyphicon glyphicon-remove"></i>DELETE</button>
+                    <button class="btn btn-danger" ng-click="removeMyProfile()" data-dismiss="modal"><i
+                            class="glyphicon glyphicon-remove"></i>DELETE
+                    </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -82,22 +91,26 @@
                     <h4 class="modal-title">Your name is: {{myProfile.name}}</h4>
                 </div>
                 <div class="modal-body">
-                   <form>
-                       <div class="form-group">
-                           <label for="oldPassword">Your password:</label>
-                           <input type="password" class="form-control" id="oldPassword" placeholder="Old password:">
-                       </div><div class="form-group">
-                           <label for="newPassword">New password:</label>
-                           <input type="password" class="form-control" id="newPassword" placeholder="New password:">
-                       </div>
-                       <div class="form-group">
-                           <label for="newPassword2">New password repeat:</label>
-                           <input type="password" class="form-control" id="newPassword2" placeholder="New password repeat:">
-                       </div>
-                   </form>
+                    <form>
+                        <div class="form-group">
+                            <label for="oldPassword">Your password:</label>
+                            <input type="password" class="form-control" id="oldPassword" placeholder="Old password:">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword">New password:</label>
+                            <input type="password" class="form-control" id="newPassword" placeholder="New password:">
+                        </div>
+                        <div class="form-group">
+                            <label for="newPassword2">New password repeat:</label>
+                            <input type="password" class="form-control" id="newPassword2"
+                                   placeholder="New password repeat:">
+                        </div>
+                    </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-info" ng-click="changePassword()" data-dismiss="modal"><i class="glyphicon glyphicon-refresh"></i>  Change Password</button>
+                    <button type="button" class="btn btn-info" ng-click="changePassword()" data-dismiss="modal"><i
+                            class="glyphicon glyphicon-refresh"></i> Change Password
+                    </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
