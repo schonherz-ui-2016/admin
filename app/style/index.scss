@@ -81,3 +81,18 @@ category-tree{
 	color: #4588D4;
 	border-color: #4588D4;
 }
+
+.products_in_category_tree {
+  display: flex;
+  align-content: flex-end;
+}
+
+.right {
+  .list_style {
+    list-style-type: circle;
+  }
+}
+
+.glyphicon-folder-close, .glyphicon-folder-open {
+  color: #2a6496;
+}
