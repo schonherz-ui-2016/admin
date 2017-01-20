@@ -15,13 +15,13 @@ gulp.task('sass:watch', function () {
 });
 
 //$ npm install --save-dev gulp-webserver
-gulp.task('webserver', function() {
+gulp.task('webserver', function () {
     gulp.src('app')
         .pipe(webserver({
             fallback: 'app/index.html',
             open: true,
-            host : 'localhost',
-            port: 3000,
+            host: 'localhost',
+            port: 3000
         }));
 });
 
