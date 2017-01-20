@@ -2,11 +2,10 @@
     <ul ng-repeat="category in data">
         <li>
             <div class="products_in_category_tree">
-                <div ng-if="category.children.length != 0">
-                    <span class="sign" ng-click="open = !open; reverse = !reverse" ng-class="{reverse: reverse}"></span>
+                <div>
                     <span ng-show="!open" class="glyphicon glyphicon-folder-close"></span>
                     <span ng-show="open" class="glyphicon glyphicon-folder-open"></span>
-                    {{category.name}}
+                    <span ng-click="open = !open">{{category.name}}</span>
                     <span class="right">
                         <ul ng-repeat="product in category.products">
                             <li class="list_style"><a href="#/products/{{product.id}}">{{product.name}}</a></li>
@@ -14,15 +13,6 @@
                     </span>
                     <div ng-show="open"><category-tree data="category.children"></category-tree></div>
                 </div>
-                <span ng-if="category.children.length == 0">
-                    <span class="glyphicon glyphicon-folder-open"></span>
-                    {{category.name}}
-                    <span class="right">
-                    <ul ng-repeat="product in category.products">
-                        <li class="list_style"><a href="#/products/{{product.id}}">{{product.name}}</a></li>
-                    </ul>
-                </span>
-                </span>
             </div>
         </li>
     </ul>
