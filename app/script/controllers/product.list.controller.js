@@ -8,6 +8,9 @@
             apiService.getProducts()
                     .then(function (response) {
                         $scope.allProducts = response.data;
+                        angular.forEach($scope.allProducts, function (x) {
+                           delete x.warehouses;
+                        });
                         $scope.products = [];
                         angular.forEach(response.data, function (x) {
                             x.category = x.category.name;
