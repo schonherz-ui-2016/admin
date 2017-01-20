@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var webserver = require('gulp-webserver');
-
+var $ = require('gulp-load-plugins')();
 gulp.task('sass', function () {
     return gulp.src('./app/style/**/*.scss')
         .pipe(sass().on('error', sass.logError))
@@ -25,4 +25,12 @@ gulp.task('webserver', function() {
         }));
 });
 
-gulp.task('default', ['sass:watch', 'webserver']);
+gulp.task('uglify', function() {
+    gulp.src('./app/script/**/*.js')           // create a stream from all .js files under src
+        .pipe($.sourcemaps.init())      // keep track of the original line numbers
+        .pipe($.concat('build.js'))     // join the contents of the files to build.js
+        .pipe($.uglify())               // minimize it
+        .pipe($.sourcemaps.write('./')) // emit a build.js.map
+        .pipe(gulp.dest('./app/build'));    // stream the files into the build folder
+});
+gulp.task('default', ['sass:watch', 'webserver','uglify']);

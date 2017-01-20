@@ -4,3 +4,4 @@ app/bower_components
 *.iml
 *.css
 app/config.js
+app/build
