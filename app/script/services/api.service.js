@@ -106,6 +106,9 @@
         this.getWarehouse = function (id) {
             return $http.get(domain + '/warehouse/' + id);
         };
+        this.getRoles = function () {
+            return $http.get(domain + '/role');
+        }
     };
 
     angular.module('app').service('apiService', apiService);
