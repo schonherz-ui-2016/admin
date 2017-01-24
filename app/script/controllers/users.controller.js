@@ -1,7 +1,7 @@
 
 (function () {
     angular.module('app')
-        .controller('usersController', function (apiService, $scope) {
+        .controller('usersController',['apiService','$scope', function (apiService, $scope) {
             apiService.getUsers()
                 .then(function (res) {
                     $scope.users = [];
@@ -10,5 +10,5 @@
                         $scope.users.push(obj);
                     })
                 });
-        })
+        }])
 })();

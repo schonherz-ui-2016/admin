@@ -1,5 +1,5 @@
 (function () {
-    var apiService = function ($http, $window) {
+    var apiService = function ($http, $window) { //ebből  a sorból már nem jól generálódott a build.js, mikor uglify-olva van
         var domain = $window.urlBase || 'http://81.2.254.9:1337';
         
         this.login = function (email, password) {

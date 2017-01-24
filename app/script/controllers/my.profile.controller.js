@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module('app')
-        .controller('myProfileController', function (apiService, $scope, $location) {
+        .controller('myProfileController',['apiService','$scope','$location', function (apiService, $scope, $location) {
             apiService.getUserId()
                 .then(function (response) {
                     apiService.getUser(response.data.id)
@@ -39,6 +39,6 @@
 
             }
 
-        });
+        }]);
 
 })();

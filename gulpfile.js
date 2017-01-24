@@ -60,7 +60,7 @@ gulp.task('compress', function (cb) {
     pump([
             // gulp.src(mainBowerFiles({filter: /js$/})),
             gulp.src('./app/script/**/*.js'),
-             // uglify(),
+               // uglify(),
             concat('./build.js'),
             gulp.dest('./app/script')
         ],
