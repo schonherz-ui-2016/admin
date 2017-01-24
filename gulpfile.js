@@ -3,7 +3,7 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var webserver = require('gulp-webserver');
-// var $ = require('gulp-load-plugins')();
+ var $ = require('gulp-load-plugins')();
 var concat = require('gulp-concat');
 var src = require('gulp-add-src');
 var mainBowerFiles = require('main-bower-files');
@@ -58,13 +58,22 @@ gulp.task('webserver', function () {
 
 gulp.task('compress', function (cb) {
     pump([
-            // gulp.src(mainBowerFiles({filter: /js$/})),
+            gulp.src(mainBowerFiles({filter: /js$/})),
+            uglify(),
+            concat('./bower.js'),
+            gulp.dest('./app/script')
+        ],
+        cb
+    );
+});
+gulp.task('compress2', function (cb) {
+    pump([
             gulp.src('./app/script/**/*.js'),
-                uglify(),
+            uglify(),
             concat('./build.js'),
             gulp.dest('./app/script')
         ],
         cb
     );
 });
-gulp.task('default', ['sass:watch', 'webserver', 'compress']);
+gulp.task('default', ['sass:watch', 'webserver', 'compress','compress2']);
