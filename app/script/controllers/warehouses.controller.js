@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('warehousesController', function (apiService, $scope) {
+        .controller('warehousesController',['apiService','$scope', function (apiService, $scope) {
             apiService.getWarehouses()
                 .then(function (res) {
                     $scope.warehouses = [];
@@ -16,5 +16,5 @@
                         $scope.warehouses.push(obj);
                     });
                 })
-        })
+        }])
 })();

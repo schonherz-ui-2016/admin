@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('usersDetailsController', function (apiService, $scope, $routeParams, $location) {
+        .controller('usersDetailsController',['apiService','$scope','$routeParams','$location', function (apiService, $scope, $routeParams, $location) {
             apiService.getUser($routeParams.id)
                 .then(function (res) {
                     $scope.user = res.data;
@@ -54,5 +54,5 @@
                 $scope.user.roles = _.intersectionWith($scope.rolesFromBackend, $scope.tempUserForRole, equalRolesName);
                 $scope.userUpdate();
             }
-        })
+        }])
 })();

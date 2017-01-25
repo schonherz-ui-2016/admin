@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('addProductController', function ($scope, apiService, $location) {
+        .controller('addProductController',['$scope','apiService','$location', function ($scope, apiService, $location) {
             $scope.newProduct = function () {
                 apiService.addProduct($scope.product)
                     .then(function () {
@@ -11,5 +11,5 @@
                 .then(function (res) {
                     $scope.category = res.data;
                 });
-        })
+        }])
 })();
