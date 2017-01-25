@@ -8,6 +8,10 @@
             apiService.getProducts()
                     .then(function (response) {
                         console.log(response)
+                        angular.forEach(response.data, function (x) {
+                            x.createdAt = $filter('date') (x.createdAt,'yyyy-MM-dd EEEE HH:mm:ss' );
+                            x.updatedAt = $filter('date') (x.updatedAt,'yyyy-MM-dd EEEE HH:mm:ss' );
+                        });
                         $scope.allProducts = response.data;
                         $scope.products = [];
                         angular.forEach(response.data, function (x) { 
