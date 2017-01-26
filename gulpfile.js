@@ -52,5 +52,4 @@ var srcFiles = './app/script/**/*.js';
 var file2 = './build.js';
 
 compressed(taskName2,srcFiles, file2);
-
 gulp.task('default', ['sass:watch', 'webserver', 'compress','compress2']);
