@@ -5,7 +5,7 @@
         .module('app',['ngRoute','xeditable'])
 
 
-        .config(function ($routeProvider, $locationProvider) {
+        .config(['$routeProvider','$locationProvider',function ($routeProvider, $locationProvider) {
             $locationProvider.hashPrefix('');
 
             $routeProvider
@@ -64,7 +64,7 @@
                 .otherwise({
                     redirectTo: '/'
                 })
-        })
+        }])
 
 
         .factory('httpRequestInterceptor',function () {
@@ -78,12 +78,12 @@
             }
         })
 
-        .config(function ($httpProvider) {
+        .config(['$httpProvider',function ($httpProvider) {
             $httpProvider.interceptors.push('httpRequestInterceptor');
-        })
+        }])
     // xeditable
-        .run(function(editableOptions) {
+        .run(['editableOptions',function(editableOptions) {
             editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
-        });
+        }]);
     // xeditable
 })();

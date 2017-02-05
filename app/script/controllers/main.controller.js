@@ -3,7 +3,7 @@
  */
 (function () {
     angular.module('app')
-        .controller('mainController', function (apiService, $scope) {
+        .controller('mainController',['apiService','$scope', function (apiService, $scope) {
             $scope.$watch(function () {
                 return localStorage.getItem('token');
             }, function (token) {
@@ -19,5 +19,5 @@
             $scope.logout=function logout() {
                 apiService.logout();
             }
-        } )
+        }])
 })();

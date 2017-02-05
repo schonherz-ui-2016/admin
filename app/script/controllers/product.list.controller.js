@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('productListController', function ($http, $scope, $locale, apiService, $location) {
+        .controller('productListController',['$http','$scope','$locale','apiService','$location', function ($http, $scope, $locale, apiService, $location) {
             apiService.getCategories()
                 .then(function (res) {
                     $scope.categories = res.data;
@@ -30,6 +30,6 @@
             $scope.add = function () {
                 $location.path('/new_product');
             };
-        })
+        }])
 
 })();

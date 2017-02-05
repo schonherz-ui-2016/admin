@@ -1,6 +1,6 @@
 (function () {
     angular.module('app')
-        .controller('categoriesDetailsController', function ($http, $scope, $locale, apiService, $location, $routeParams){
+        .controller('categoriesDetailsController',['$http','$scope','$locale','apiService','$location','$routeParams', function ($http, $scope, $locale, apiService, $location, $routeParams){
             apiService.getCategory($routeParams.id)
                 .then(function (res) {
                     $scope.category = res.data;
@@ -47,5 +47,5 @@
                     }
                 }
             };
-        })
+        }])
 })();
