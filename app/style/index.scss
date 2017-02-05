@@ -47,12 +47,6 @@ header{
 .sortorder.reverse:after {
   content: '\25bc';
 }
-.sign:after {
-  content: '\25ba';
-}
-.sign.reverse:after {
-  content: '\25bc';
-}
 .sort:hover {
   color: #cc0000;
   cursor: pointer;
@@ -75,9 +69,19 @@ category-tree{
   border-radius: .3em;
   color: #FFF;
   background-color: #0650A6;
+  margin-left: 5em;
 }
 
 .empty:hover {
-	color: #4588D4;
-	border-color: #4588D4;
+  color: #4588D4;
+  border-color: #4588D4;
+  cursor: pointer;
+}
+
+.list_style {
+  list-style-type: circle;
+}
+
+.glyphicon-folder-close, .glyphicon-folder-open {
+  color: #E8D373;
 }
