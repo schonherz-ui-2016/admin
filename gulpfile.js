@@ -39,7 +39,7 @@ var compressed = function (taskName, bowerFiles, file) {
                 gulp.src(bowerFiles),
                 uglify(),
                 concat(file),
-                gulp.dest('./app/script')
+                gulp.dest('./app')
             ],
             cb
         );
